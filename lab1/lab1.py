@@ -1,177 +1,182 @@
 import csv, sys, os
 
-file_name = raw_input("Please Enter a file name")
-input_file = open(file_name, 'rb')
-out_file = open(transformed_file.csv, 'wb')
-reader = csv.reader(input_file)
+file_name = input("Please Enter a file name: ")
+input_file = open(file_name, 'r')
+out_file = open('dataset/transformed_file.csv', 'w')
+reader = (csv.reader(input_file))
 writer = csv.writer(out_file)
+i=0
 for row in reader:
-	if row[2] == 'never-worked':
+	# while (row[i] != '?' and i < 15):
+	if row[2] == 'Never-worked':
 		row[2] = '0'
-	elif row[2] == "without-pay":
+	elif row[2] == "Without-pay":
 		row[2] = "1"
-	elif row[2] == "self-emp-not-inc":
+	elif row[2] == "Self-emp-not-inc":
 		row[2] = "2"
-	elif row[2] == "self-emp-inc":
+	elif row[2] == "Self-emp-inc":
 		row[2] = "3"
-	elif row[2] == "private":
+	elif row[2] == "Private":
 		row[2] = "4"
-	elif row[2] == "local-gov":
+	elif row[2] == "Local-gov":
 		row[2] = "5"
-	elif row[2] == "federal-gov":
+	elif row[2] == "Federal-gov":
 		row[2] = "6"
 	
-	if row[6] =="married-civ-spouse":
+	if row[6] =="Married-civ-spouse":
 		row[6] = "0"
-	elif row[6] == "divorced":
+	elif row[6] == "Divorced":
 		row[6] = "1"
-	elif row[6] == "never-married":
+	elif row[6] == "Never-married":
 		row[6] = "2"
-	elif row[6] == "widowed":
+	elif row[6] == "Widowed":
 		row[6] = "3"
-	elif row[6] == "married-spouse-absent":
+	elif row[6] == "Married-spouse-absent":
 		row[6] = "4"
-	elif row[6] == "married-af-spouse":
+	elif row[6] == "Married-af-spouse":
 		row[6] = "5"
 
-	if row[7] == "tech-support":
+	if row[7] == "Tech-support":
 		row[7] = "0"
-	elif row[7] == "craft-repair":
+	elif row[7] == "Craft-repair":
 		row[7] = "1"
-	elif row[7] == "other-service":
+	elif row[7] == "Other-service":
 		row[7] = "2"
-	elif row[7] == "sales":
+	elif row[7] == "Sales":
 		row[7] = "3"
-	elif row[7] == "exec-managerial":
+	elif row[7] == "Exec-managerial":
 		row[7] = "4"
-	elif row[7] == "prof-speciality":
+	elif row[7] == "Prof-speciality":
 		row[7] = "5"
-	elif row[7] == "handlers-cleaners":
+	elif row[7] == "Handlers-cleaners":
 		row[7] = "6"
-	elif row[7] == "machine-op-inspct":
+	elif row[7] == "Machine-op-inspct":
 		row[7] = "7"
-	elif row[7] == "adm-clerical":
+	elif row[7] == "Adm-clerical":
 		row[7] = "8"
-	elif row[7] == "framing-fishing":
+	elif row[7] == "Framing-fishing":
 		row[7] = "9"
-	elif row[7] == "transport-moving":
+	elif row[7] == "Transport-moving":
 		row[7] = "10"
-	elif row[7] == "priv-house-serv":
+	elif row[7] == "Priv-house-serv":
 		row[7] = "11"
-	elif row[7] == "protective-serv":
+	elif row[7] == "Protective-serv":
 		row[7] = "12"
-	elif row[7] == "armed-forces":
+	elif row[7] == "Armed-forces":
 		row[7] = "13"
 
-	if row[8] == "wife":
+	if row[8] == "Wife":
 		row[8] = "0"
-	elif row[8] == "own-child":
+	elif row[8] == "Own-child":
 		row[8] = "1"
-	elif row[8] == "husband":
+	elif row[8] == "Husband":
 		row[8] = "2"
-	elif row[8] == "not-in-family":
+	elif row[8] == "Not-in-family":
 		row[8] = "3"
-	elif row[8] == "other-relative":
+	elif row[8] == "Other-relative":
 		row[8] = "4"
-	elif row[8] == "unmarried":
+	elif row[8] == "Unmarried":
 		row[8] = "5"
 	
-	if row[9] == "white":
+	if row[9] == "White":
 		row[9] = "0"
-	elif row[9] == "asian-pac-island":
+	elif row[9] == "Asian-pac-island":
 		row[9] =="1"
-	elif row[9] == "amer-indian-eskimo":
+	elif row[9] == "Amer-indian-eskimo":
 		row[9] =="2"
-	elif row[9] == "black":
+	elif row[9] == "Black":
 		row[9] =="3"
 	
-	if row[10] == "male":
-		row[10] = "0"
-	else:
-		row[10] = "1"
+	if row[10] == 'Male':
+		row[10] = '0'
+	elif row[10] == 'Female':
+		row[10] = '1'
 
-	if row[14] == "united states":
+	if row[14] == "United states":
 		row[14] = "0"
-	elif row[14] == "canada":
+	elif row[14] == "Canada":
 		row[14] = "1"
-	elif row[14] == "england":
+	elif row[14] == "England":
 		row[14] = "2"
-	elif row[14] == "cambodia":
+	elif row[14] == "Cambodia":
 		row[14] = "3"
-	elif row[14] == "puerto-rico":
+	elif row[14] == "Puerto-rico":
 		row[14] = "4"
-	elif row[14] == "germany":
+	elif row[14] == "Germany":
 		row[14] = "5"
-	elif row[14] == "outlying-us":
+	elif row[14] == "Outlying-us":
 		row[14] = "6"
-	elif row[14] == "india":
+	elif row[14] == "India":
 		row[14] = "7"
-	elif row[14] == "japan":
+	elif row[14] == "Japan":
 		row[14] = "8"
-	elif row[14] == "greece":
+	elif row[14] == "Greece":
 		row[14] = "9"
-	elif row[14] == "south":
+	elif row[14] == "South":
 		row[14] = "10"
-	elif row[14] == "china":
+	elif row[14] == "China":
 		row[14] = "11"
-	elif row[14] == "cuba":
+	elif row[14] == "Cuba":
 		row[14] = "12"
-	elif row[14] == "iran":
+	elif row[14] == "Iran":
 		row[14] = "13"
-	elif row[14] == "honduras":
+	elif row[14] == "Honduras":
 		row[14] = "14"
-	elif row[14] == "phillippines":
+	elif row[14] == "Phillippines":
 		row[14] = "15"
-	elif row[14] == "italy":
+	elif row[14] == "Italy":
 		row[14] = "16"
-	elif row[14] == "poland":
+	elif row[14] == "Poland":
 		row[14] = "17"
-	elif row[14] == "jamaica":
+	elif row[14] == "Jamaica":
 		row[14] = "18"
-	elif row[14] == "vietnam":
+	elif row[14] == "Vietnam":
 		row[14] = "19"
-	elif row[14] == "mexico":
+	elif row[14] == "Mexico":
 		row[14] = "20"
-	elif row[14] == "portugal":
+	elif row[14] == "Portugal":
 		row[14] = "21"
-	elif row[14] == "ireland":
+	elif row[14] == "Ireland":
 		row[14] = "22"
-	elif row[14] == "france":
+	elif row[14] == "France":
 		row[14] = "23"
-	elif row[14] == "dominican-republic":
+	elif row[14] == "Dominican-republic":
 		row[14] = "24"
-	elif row[14] == "laos":
+	elif row[14] == "Laos":
 		row[14] = "25"
-	elif row[14] == "ecuador":
+	elif row[14] == "Ecuador":
 		row[14] = "26"
-	elif row[14] == "taiwan":
+	elif row[14] == "Taiwan":
 		row[14] = "27"
-	elif row[14] == "haiti":
+	elif row[14] == "Haiti":
 		row[14] = "28"
-	elif row[14] == "columbia":
+	elif row[14] == "Columbia":
 		row[14] = "29"
-	elif row[14] == "hungary":
+	elif row[14] == "Hungary":
 		row[14] = "30"
-	elif row[14] == "guatemala":
+	elif row[14] == "Guatemala":
 		row[14] = "31"
-	elif row[14] == "nicaragua":
+	elif row[14] == "Nicaragua":
 		row[14] = "32"
-	elif row[14] == "scotland":
+	elif row[14] == "Scotland":
 		row[14] = "33"
-	elif row[14] == "thailand":
+	elif row[14] == "Thailand":
 		row[14] = "34"
-	elif row[14] == "yugoslavia":
+	elif row[14] == "Yugoslavia":
 		row[14] = "35"
-	elif row[14] == "el-salvador":
+	elif row[14] == "El-salvador":
 		row[14] = "36"
-	elif row[14] == "trinidad & tobago":
+	elif row[14] == "Trinidad & tobago":
 		row[14] = "37"
-		elif row[14] == "peru":
-		row[14] = "38"
-	elif row[14] == "hong":
+	elif row[14] == "Hong":
 		row[14] = "39"
-	elif row[14] == "holand-netherlands":
+	elif row[14] == "Holand-netherlands":
 		row[14] = "40"
-	
+	# i=i+1
+	writer.writerow(row)
+
+
+out_file.close()
+input_file.close()
 	
 	
