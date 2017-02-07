@@ -7,8 +7,9 @@ reader = (csv.reader(input_file))
 writer = csv.writer(out_file)
 i=0
 for row in reader:
-	if "?" not in row:
-		#do nothing
+	if "?" in row:
+		print(row[0])
+	else:
 		if row[2] == ' Never-worked':
 			row[2] = '0'
 		elif row[2] == " Without-pay":
@@ -173,7 +174,7 @@ for row in reader:
 			row[14] = "35"
 		elif row[14] == " El-salvador":
 			row[14] = "36"
-		elif row[14] == " Trinidad&Tobago":
+		elif row[14] == " Trinadad&Tobago":
 			row[14] = "37"
 		elif row[14] == " Hong":
 			row[14] = "39"
@@ -184,5 +185,3 @@ for row in reader:
 
 out_file.close()
 input_file.close()
-	
-	
