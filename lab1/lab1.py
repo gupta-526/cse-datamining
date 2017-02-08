@@ -185,6 +185,7 @@ for row in reader:
 		while(j<14):
 			row[j]=row[j+1]
 			j=j+1
+		row[14]=""
 		writer.writerow(row)
 
 
