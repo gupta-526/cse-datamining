@@ -180,6 +180,11 @@ for row in reader:
 			row[14] = "39"
 		elif row[14] == " Holand-netherlands":
 			row[14] = "40"
+		row[15]=""
+		j=4
+		while(j<14):
+			row[j]=row[j+1]
+			j=j+1
 		writer.writerow(row)
 
 
