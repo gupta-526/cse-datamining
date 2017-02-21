@@ -1,3 +1,6 @@
+# File that calcualtes euclidean distance and cosine similarities for 
+# income and iris data sets. 
+# File outputs the K most similar IDs for each transaction.
 
 def euclidean_dist(p,q):
     e=0
@@ -86,10 +89,11 @@ calc=[]
 #change if needed, where k is number of closest tuples
 k=5
 header=create_header(k)
+# change as needed for the dataset being run, i.e test or training
 #for iris
 with open("dataset/iris_test.csv") as file:
 #for income
-#with open("transformed_file.csv") as file:
+#with open("dataset/transformed_file.csv") as file:
     read=csv.reader(file)
     next(read)
     for row in read:

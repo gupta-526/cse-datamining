@@ -1,3 +1,7 @@
+# File to transform the income data set.
+# File transforms the nominal attributes and assigns each 
+# attribute an interger
+
 import csv, sys, os, string
 
 file_name = input("Please Enter a file name: ")
@@ -5,6 +9,7 @@ input_file = open("dataset/"+file_name, 'r')
 out_file = open('dataset/transformed_file.csv', 'w')
 reader = (csv.reader(input_file))
 writer = csv.writer(out_file)
+# creating dictionaries for each nominal attribute
 workclass = {"workclass":" workclass",
 			' Never-worked':'0',
 			" Without-pay":"1",
@@ -95,6 +100,7 @@ country = {	"native_country": "native_country",
 			" Hong":"39",
 			" Holand-netherlands":"40",
 			" ?": "?"}
+# reading in data and chaing it
 for row in reader:
 	
 	row[2] = workclass.get(row[2])
