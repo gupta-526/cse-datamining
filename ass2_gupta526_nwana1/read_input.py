@@ -1,3 +1,7 @@
+# File to transform the income data set.
+# File transforms the nominal attributes and assigns each 
+# attribute an interger
+
 import csv, sys, os, string
 
 file_name = input("Please Enter a file name: ")
@@ -5,7 +9,8 @@ input_file = open("dataset/"+file_name, 'r')
 out_file = open('dataset/transformed_file.csv', 'w')
 reader = (csv.reader(input_file))
 writer = csv.writer(out_file)
-workclass = {" workclass":" workclass",
+# creating dictionaries for each nominal attribute
+workclass = {"workclass":" workclass",
 			' Never-worked':'0',
 			" Without-pay":"1",
 			" Self-emp-not-inc":"2",
@@ -13,16 +18,16 @@ workclass = {" workclass":" workclass",
 			" Private":"4",
 			" Local-gov":"5",
 			" Federal-gov":"6",
-			" State-gov":"7"}
-relationship = {" marital_status":" marital_status",
+			" State-gov":"7"," ?": "?"}
+relationship = {"marital_status":"marital_status",
 				" Married-civ-spouse":"0",
 				" Divorced":"1",
 				" Never-married":"2",
 				" Widowed":"3",
 				" Married-spouse-absent":"4",
 				" Married-AF-spouse":"5",
-				" Separated":"6"}
-occupation = {" occupation":" occupation",
+				" Separated":"6"," ?": "?"}
+occupation = {"occupation":" occupation",
 			" Tech-support":"0",
 			" Craft-repair":"1",
 			" Other-service":"2",
@@ -36,23 +41,23 @@ occupation = {" occupation":" occupation",
 			" Transport-moving":"10",
 			" Priv-house-serv":"11",
 			" Protective-serv":"12",
-			" Armed-forces":"13"}
-dependent = {" relationship": " relationship",
+			" Armed-forces":"13"," ?": "?"}
+dependent = {"relationship": " relationship",
 			 " Wife":"0",
 			 " Own-child":"1",
 			 " Husband":"2",
 			 " Not-in-family":"3",
 			 " Other-relative":"4",
-			 " Unmarried":"5"}
-race = {" race": " race",
-		"White":"0",
+			 " Unmarried":"5"," ?": "?"}
+race = {"race": " race",
+		" White":"0",
 		" Asian-Pac-Islander":"1",
 		" Amer-Indian-Eskimo":"2",
 		" Black":"3",
-		" Other":"4"}
-gender = {' gender': "gender",
+		" Other":"4"," ?": "?"}
+gender = {'gender': "gender",
 		  ' Male':'0',
-		  ' Female':'1'}
+		  ' Female':'1'," ?": "?"}
 country = {	"native_country": "native_country",
 			" United-States":"0",
 			" Canada":"1",
@@ -93,12 +98,11 @@ country = {	"native_country": "native_country",
 			" El-salvador":"36",
 			" Trinadad&Tobago":"37",
 			" Hong":"39",
-			" Holand-netherlands":"40"}
+			" Holand-netherlands":"40",
+			" ?": "?"}
+# reading in data and chaing it
 for row in reader:
 	
-
-	# if int(row[13])>70:
-	# 	row[13] = '40'
 	row[2] = workclass.get(row[2])
 	row[3]=""
 	row[6] = relationship.get(row[6])
@@ -110,14 +114,12 @@ for row in reader:
 		if int(row[13])>70:
 			row[13] = "40"
 	row[14] = country.get(row[14])
-	row[15]=""
 	j=3
-	while(j<14):
+	while(j<15):
 		row[j]=row[j+1]
 		j=j+1
-	row[14]=""
+	row[15]=""
 	writer.writerow(row)
-
 
 
 out_file.close()
