@@ -9,9 +9,9 @@ for i in range(1,k+1):
     header.append("ID")
     header.append("Symm")
 #for iris
-with open("iris_test.csv") as file:
+with open("dataset/iris_test.csv") as file:
 #for income
-#with open("transformed_file.csv") as file:
+#with open("dataset/transformed_file.csv") as file:
     read=csv.reader(file)
     next(read)
     for row in read:
@@ -75,11 +75,11 @@ for i in range(0, len(dat)):
     calc.append(top)
 file.close
 #for iris
-outE=open("iris_sym_euclidean.csv",'w')
-outC=open("iris_sym_cosine.csv","w")
+outE=open("dataset/iris_sym_euclidean.csv",'w')
+outC=open("dataset/iris_sym_cosine.csv","w")
 #for income
-#outE=open("income_sym_euclidean.csv",'w')
-#outC=open("income_sym_cosine.csv","w")
+#outE=open("dataset/income_sym_euclidean.csv",'w')
+#outC=open("dataset/income_sym_cosine.csv","w")
 wrE = csv.writer(outE, quoting=csv.QUOTE_ALL)
 wrC= csv.writer(outC, quoting=csv.QUOTE_ALL)
 wrE.writerow(header)
