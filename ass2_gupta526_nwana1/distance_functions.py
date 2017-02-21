@@ -1,14 +1,14 @@
-
+import csv
 def euclidean_dist(p,q):
     e=0
-    for m in range(0, len(p)):
+    for m in range(0, len(p)-1):
         e = e + abs(p[m] - q[m])
     return (1 / len(p)) * e
 def cosine_dist(p,q):
     num = 0
     denomp = 0
     denomq = 0
-    for m in range(0, len(p)):
+    for m in range(0, len(p)-1):
         num = num + (p[m] * q[m])
         denomp = denomp + p[m] * p[m]
         denomq = denomq + q[m] * q[m]
@@ -19,9 +19,10 @@ def create_header(k):
     for i in range(1, k + 1):
         header.append("ID")
         header.append("Symm")
+        header.append("Class")
     return header
 
-def output_iris_symmetry(calc):
+def iris_symmetry(calc,header):
     outE = open("iris_sym_euclidean.csv", 'w')
     outC = open("iris_sym_cosine.csv", "w")
     wrE = csv.writer(outE, quoting=csv.QUOTE_ALL)
@@ -44,7 +45,7 @@ def output_iris_symmetry(calc):
     outC.close()
 
 
-def output_income_symmetry(calc):
+def income_symmetry(calc,header):
     outE=open("income_sym_euclidean.csv",'w')
     outC=open("income_sym_cosine.csv","w")
     wrE = csv.writer(outE, quoting=csv.QUOTE_ALL)
@@ -59,89 +60,92 @@ def output_income_symmetry(calc):
         rowC = [id]
         rowE = [id]
         for i in range(0, len(e)):
-            rowC.append(c[i])
+            rowC.append(c[i])l,
             rowE.append(e[i])
         wrC.writerow(rowC)
         wrE.writerow(rowE)
     outE.close()
     outC.close()
 
-def income_append(id,top5e,top5c):
+def income_append(id,intop):
     top=[id]
-    top.append(top5e)
-    top.append(top5c)
+    top.append(intop)
     return top
 
-def iris_append(i,top5c,top5e):
+def iris_append(i,intop):
     top = [i]
-    top.append(top5e)
-    top.append(top5c)
+    top.append(intop)
     return top
 
 
 #input: iris or income
-import csv
-dat=[]
-calc=[]
-#change if needed, where k is number of closest tuples
-k=5
-header=create_header(k)
-#for iris
-with open("dataset/iris_test.csv") as file:
-#for income
-#with open("transformed_file.csv") as file:
-    read=csv.reader(file)
-    next(read)
-    for row in read:
-        p=row
-        #next line used for iris only. comment out if for income
-        p=p[0:4]
-        if not " ?" in p and not "?" in p:
-            for n in range(0, len(p)):
-                p[n]=float(p[n])
-            dat.append(p)
-for i in range(0, len(dat)):
-    p=dat[i]
-    top5c=[]
-    top5e=[]
-    for s in range(0,2*k):
-        top5c.append(-1)
-        top5e.append(100000)
-    for j in range(0, len(dat)):
-        q=dat[j]
-        if j!=i:
-            e=euclidean_dist(p,q)
-            c=cosine_dist(p,q)
-            e_rep = False
-            c_rep = False
-            seq=[]
-            for x in range(1,2*k):
-                if x%2!=0:
-                    seq.append(x)
-            for r in seq:
-                if e < top5e[r] and not e_rep:
-                    e_rep=True
-                    if(r<2*k-1):
-                        top5e[r+2]=top5e[r]
-                        top5e[r+1]=top5e[r-1]
-                    top5e[r -1] = j
-                    top5e[r] = e
-                if c> top5c[r] and not c_rep :
-                    c_rep = True
-                    if(r<2*k-1):
-                        top5c[r + 2] = top5c[r]
-                        top5c[r + 1] = top5c[r - 1]
-                    top5c[r - 1] = j
-                    top5c[r] = c
-                r=r+1
-    #for income
-    #top=income_append(p[0],top5e,top5c)
+def output_symmetry():
+    import csv
+    dat=[]
+    calc=[]
+    #change if needed, where k is number of closest tuples
+    k=5
+    #choose e for euclidean distance, c for cosine distance
+    symm="e"
+    header=create_header(k)
     #for iris
-    top=iris_append(i,top5c,top5e)
-    calc.append(top)
-file.close
-#for iris
-output_iris_symmetry(calc)
-#for income
-#output_income_symmetry(calc)
+    with open("dataset/iris_test.csv") as file:
+    #for income
+    #with open("transformed_file.csv") as file:
+        read=csv.reader(file)
+        next(read)
+        for row in read:
+            p=row
+            if not " ?" in p and not "?" in p:
+                for n in range(0, len(p)-1):
+                    p[n]=float(p[n])
+                dat.append(p)
+    file.close
+    for i in range(0, len(dat)):
+        p=dat[i]
+        top5c=[]
+        top5e=[]
+        for s in range(0,3*k):
+            top5c.append(-1)
+            top5e.append(100000)
+        for j in range(0, len(dat)):
+            q=dat[j]
+            if j!=i:
+                e=euclidean_dist(p,q)
+                e_rep = False
+                c=cosine_dist(p,q)
+                c_rep = False
+                seq=[]
+                for x in range(0,3*k):
+                    if x%3==0:
+                        seq.append(x)
+                for r in seq:
+                    if e < top5e[r] and not e_rep:
+                        e_rep=True
+                        if(r<3*k-3):
+                            top5e[r+3] = top5e[r]
+                            top5e[r+4]=top5e[r+1]
+                            top5e[r+5]=top5e[r+2]
+                        top5e[r] = j
+                        top5e[r+1] = e
+                        top5e[r + 2] = q[-1]
+                    if c> top5c[r] and not c_rep :
+                        c_rep = True
+                        if(r<3*k-3):
+                            top5c[r + 3] = top5c[r]
+                            top5c[r + 4] = top5c[r+1]
+                            top5c[r+5]=top5c[r+2]
+                        top5c[r] = j
+                        top5c[r+1] = c
+                        top5c[r + 2] = q[-1]
+        #for income
+        #top=income_append(p[0],top5e,top5c)
+        #for iris
+        top=iris_append(i,top5c)
+        #for cosine distance
+        #top=iris_append(i,top5c)
+        calc.append(top)
+    return calc
+    # return output_income_symmetry(calc,header)
 
+output_symmetry()
