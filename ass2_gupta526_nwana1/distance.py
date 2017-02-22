@@ -34,8 +34,9 @@ for i in range(0, len(dat)):
         q=dat[j]
         if j!=i:
             e=0
-            for m in range(0, len(p)-1):
-                e=e+abs(p[m]-q[m])
+            for m in range(0, len(p)):
+                if m!=len(p)-2:
+                    e=e+abs(p[m]-q[m])
             e=(1/len(p))*e
             num=0
             denomp=0
