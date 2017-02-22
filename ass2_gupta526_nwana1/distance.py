@@ -20,7 +20,10 @@ with open("dataset/transformed_iris_test_file.csv") as file:
         #next line used for iris only. comment out if for income
         #p=p[0:4]
         if not " ?" in p and not "?" in p:
-            for n in range(0, len(p)-1):
+            #if iris
+            for n in range(0, len(p)-2):
+            #if income
+            #for n in range(0, len(p)-1)
                 p[n]=float(p[n])
             dat.append(p)
 for i in range(0, len(dat)):
@@ -34,7 +37,7 @@ for i in range(0, len(dat)):
         q=dat[j]
         if j!=i:
             e=0
-            for m in range(0, len(p)):
+            for m in range(0, len(p)-1):
                 if m!=len(p)-2:
                     e=e+abs(p[m]-q[m])
             e=(1/len(p))*e
@@ -61,7 +64,7 @@ for i in range(0, len(dat)):
                         top5e[r + 5] = top5e[r + 2]
                     top5e[r] = j
                     top5e[r + 1] = e
-                    top5e[r + 2] = q[-1]
+                    top5e[r + 2] = q[-2]
                 # if  c> top5c[r] and not c_rep :
                 #     c_rep = True
                 #     if(r<2*k-1):
