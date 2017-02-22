@@ -4,7 +4,7 @@ Date: February 22, 2017
 Language used: Python
 
 To analyze income.csv :
-	run lab1.py first
+	run read_input.py first
 	Enter the name of the file i.e. income.csv 
 	This would generate a file called transformed_file.csv
 	in the dataset folder
