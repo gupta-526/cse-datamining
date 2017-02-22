@@ -109,13 +109,13 @@ def output_symmetry():
                         p[n]=float(p[n])
                     dat.append(p)
         file.close
+        top5c = []
+        top5e = []
+        for s in range(0, 3 * k):
+            top5c.append(-1)
+            top5e.append(100000)
         for i in range(0, len(dat)):
             p=dat[i]
-            top5c=[]
-            top5e=[]
-            for s in range(0,3*k):
-                top5c.append(-1)
-                top5e.append(100000)
             for j in range(0, len(dat)):
                 q=dat[j]
                 if j!=i:
@@ -128,7 +128,7 @@ def output_symmetry():
                         if x%3==0:
                             seq.append(x)
                     for r in seq:
-                        if e < top5e[r] and not e_rep:
+                        if e < top5e[r+1] and not e_rep:
                             e_rep=True
                             if(r<3*k-3):
                                 top5e[r+3] = top5e[r]
@@ -137,7 +137,7 @@ def output_symmetry():
                             top5e[r] = j
                             top5e[r+1] = e
                             top5e[r + 2] = q[-1]
-                        if c> top5c[r] and not c_rep :
+                        if c> top5c[r+1] and not c_rep :
                             c_rep = True
                             if(r<3*k-3):
                                 top5c[r + 3] = top5c[r]
@@ -146,16 +146,16 @@ def output_symmetry():
                             top5c[r] = j
                             top5c[r+1] = c
                             top5c[r + 2] = q[-1]
-            #for income
-            #top=income_append(p[0],top5e,top5c)
-            #for iris
-            top=iris_append(i,top5c)
-            #for cosine distance
+            #for income euclidean
+            #top=income_append(p[0],top5e)
+            # for income cosine
+            # top=income_append(p[0],top5c)
+            #for iris euclidean
+            top=iris_append(i,top5e)
+            #for iris cosine
             #top=iris_append(i,top5c)
             calc.append(top)
         print(calc)
         return calc
-
         # return output_income_symmetry(calc,header)
-
 output_symmetry()

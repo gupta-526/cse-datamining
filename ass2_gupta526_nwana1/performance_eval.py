@@ -1,4 +1,4 @@
-def eval_performance(list):
+def performance_rate(list):
     #positive is over 50k, negative is under 50k
     matrix = {"True Positive": 0, "True Negative": 0, "False Positive": 0, "False Negative": 0}
     neg=[" <=50K"," <=50K ","<=50K ","<=50K"]
@@ -16,3 +16,22 @@ def eval_performance(list):
             if trans[2] in neg:
                 matrix["False Negative"]=matrix["False Negative"]+1
     return matrix
+
+#slide 96
+def roc_table():
+
+def roc_plot():
+
+
+    return
+
+def precision(matrix):
+    return matrix["True Positive"]/(matrix["True Positive"]+matrix["False Positive"])
+
+def recall(matrix):
+    return matrix["True Positive"]/(matrix["True Positive"]+matrix["False Negative"])
+
+def f_measure(matrix):
+    num=precision(matrix)*recall(matrix)
+    denom=precision(matrix)+recall(matrix)
+    return 2*num/denom
