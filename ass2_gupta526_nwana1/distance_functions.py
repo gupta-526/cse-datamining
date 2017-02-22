@@ -96,7 +96,7 @@ def output_symmetry():
     #for iris
     with open("dataset/iris_test.csv") as file:
     #for income
-    #with open("dataset/transformed_file.csv") as file:
+    #with open("dataset/transformed_inc_test_file.csv") as file:
         with open("dataset/iris_test.csv") as file:
         #for income
         #with open("transformed_file.csv") as file:
