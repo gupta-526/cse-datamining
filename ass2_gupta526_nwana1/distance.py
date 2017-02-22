@@ -10,7 +10,7 @@ for i in range(1,k+1):
     header.append("Symm")
     header.append("Class")
 #for iris
-with open("dataset/iris_test.csv") as file:
+with open("dataset/transformed_iris_test_file.csv") as file:
 #for income
 #with open("dataset/transformed_file.csv") as file:
     read=csv.reader(file)
