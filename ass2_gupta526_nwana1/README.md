@@ -1,20 +1,36 @@
 Assignment: Lab 2
 Name: Niharika Gupta, Marielle Nwana
 Date: February 22, 2017
-Language used: Python
+Language used: Python (3.X)
 
-To analyze income.csv :
-	run read_input.py first
-	Enter the name of the file i.e. income.csv 
-	This would generate a file called transformed_file.csv
-	in the dataset folder
-	Then run distance.py
+Edit and transform input datasets to create training sets:
 
-To analyze iris.csv :
-	run distance.py
+	python read_input.py
 
-In distance.py :
-	comment out the parts for the file not being analysed. 
+	-this will generate required transformed files in the dataset folder
+
+Get euclidean distance of all:
+	
+	* for iris dataset:
+
+	python distance_functions.py
+	
+	- this will generate iris_sym_euclidean.csv file 
+
+	* for income dataset:
+		- comment out the neccesary parts and and uncomment the necessary parts
+
+		run distance_functions again. 
+
+		python distance_functions.py 
+
+Get classification of k-nearest neighbors:
+	
+	python knn_implementation.py
+	
+	- this will create knn_result_iris.csv and knn_result_income.csv in the output folder 
+
+
 
 //work division
 	-distance.py(M)
