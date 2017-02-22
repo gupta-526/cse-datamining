@@ -28,48 +28,32 @@ def create_header(k):
 
 def iris_symmetry(calc,header):
     outE = open("iris_sym_euclidean.csv", 'w')
-    outC = open("iris_sym_cosine.csv", "w")
     wrE = csv.writer(outE, quoting=csv.QUOTE_ALL)
-    wrC = csv.writer(outC, quoting=csv.QUOTE_ALL)
     wrE.writerow(header)
-    wrC.writerow(header)
     for i in range(0, len(calc)):
         row = calc[i]
         id = row[0]
         e = row[1]
-        c = row[2]
-        rowC = [id]
         rowE = [id]
         for i in range(0, len(e)):
-            rowC.append(c[i])
             rowE.append(e[i])
-        wrC.writerow(rowC)
         wrE.writerow(rowE)
     outE.close()
-    outC.close()
 
 
 def income_symmetry(calc,header):
     outE=open("income_sym_euclidean.csv",'w')
-    outC=open("income_sym_cosine.csv","w")
     wrE = csv.writer(outE, quoting=csv.QUOTE_ALL)
-    wrC = csv.writer(outC, quoting=csv.QUOTE_ALL)
     wrE.writerow(header)
-    wrC.writerow(header)
     for i in range(0, len(calc)):
         row = calc[i]
         id = row[0]
         e = row[1]
-        c = row[2]
-        rowC = [id]
         rowE = [id]
         for i in range(0, len(e)):
-            rowC.append(c[i])
             rowE.append(e[i])
-        wrC.writerow(rowC)
         wrE.writerow(rowE)
     outE.close()
-    outC.close()
 
 def income_append(id,intop):
     top=[id]
@@ -155,7 +139,7 @@ def output_symmetry():
             #for iris cosine
             #top=iris_append(i,top5c)
             calc.append(top)
-        print(calc)
-        return calc
+        iris_symmetry(calc,header)
+        #income_symmetry(calc,header)
         # return output_income_symmetry(calc,header)
 output_symmetry()
