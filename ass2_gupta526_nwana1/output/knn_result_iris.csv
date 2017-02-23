@@ -1,4 +1,4 @@
-Transaction ID,Predicted Class,Actual Class,Posterior Probability
+Transaction ID,Weighted Class,Predicted Class,Actual Class,Posterior Probability,Posterior Probability with Weight
 0,Iris-setosa,Iris-setosa,1.0
 1,Iris-setosa,Iris-setosa,1.0
 2,Iris-setosa,Iris-setosa,1.0

@@ -1,4 +1,4 @@
-Transaction ID,Predicted Class,Actual Class,Posterior Probability
+Transaction ID,Weighted Class,Predicted Class,Actual Class,Posterior Probability,Posterior Probability with Weight
 8215.0, <=50K, <=50K,0.8
 4333.0, <=50K, <=50K,0.6
 12954.0, <=50K, <=50K,0.8
