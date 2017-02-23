@@ -54,14 +54,14 @@ for i in range(0, len(dat)):
                     if(r<2*k-2):
                         top5e[r+2]=top5e[r]
                         top5e[r+3]=top5e[r+1]
-                    top5e[r] = p[-1]
+                    top5e[r] = q[-1]
                     top5e[r+1] = e
                 if  c> top5c[r+1] and not c_rep :
                     c_rep = True
                     if(r<2*k-2):
                         top5c[r + 2] = top5c[r]
                         top5c[r + 3] = top5c[r + 1]
-                    top5c[r] = p[-1]
+                    top5c[r] = q[-1]
                     top5c[r+1] = c
                 r=r+1
     #for iris
