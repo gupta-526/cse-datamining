@@ -30,16 +30,16 @@ def performance_rate_posterior(threshold):
         read=csv.reader(table)
         next(read)
         for row in read:
-            if row[1] in neg:
-                if row[-1]  <threshold:
+            if row[-1] <threshold:
+                if row[2] in neg:
                     matrix["True Negative"]=matrix["True Negative"]+1
-                if row[-1] >= threshold:
-                    matrix["False Positive"]=matrix["False Positive"]+1
-            if row[1] in pos:
-                if row[-1] >= threshold:
-                    matrix["True Positive"]=matrix["True Positive"]+1
-                if row[-1] < threshold:
-                    matrix["False Negative"]=matrix["False Negative"]+1
+                if row[2] in pos:
+                    matrix["False Negative"]=matrix["False Positive"]+1
+            if row[2] >=threshold:
+                if row[2] in pos:
+                    matrix["True Positive"] = matrix["True Positive"] + 1
+                if row[2] in neg:
+                    matrix["False Positive"] = matrix["False Negative"] + 1
     table.close()
     return matrix
 
