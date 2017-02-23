@@ -98,7 +98,7 @@ def transform_income():
 				" Scotland":"33",
 				" Thailand":"34",
 				" Yugoslavia":"35",
-				" El-salvador":"36",
+				" El-Salvador":"36",
 				" Trinadad&Tobago":"37",
 				" Hong":"39",
 				" Holand-netherlands":"40",
