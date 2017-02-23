@@ -122,14 +122,16 @@ def transform_income():
 		while(j<15):
 			row[j]=row[j+1]
 			j=j+1
-		new_row=[row[0], row[1], row[2], row[3], row[4], row[5], row[6],row[7], 
-				row[8], row[9], row[10], row[11], row[12], row[13], row[14],  ]
+		new_row=[row[0], row[1], row[2], row[4], row[5], row[6],row[7], 
+				row[8], row[9], row[10], row[11], row[12], row[13], row[14]]
 		print(new_row)
 		writer.writerow(new_row)
 		length = length+1
 		# write to training
 		if(length<100):
+			# print(new_row)
 			writer_train.writerow(new_row)
+		length+=1
 
 
 	out_inc_test_file.close()
