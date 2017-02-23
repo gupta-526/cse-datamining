@@ -104,7 +104,7 @@ def get_knn_income(k):
 	income_test_file = open("dataset/income_sym_euclidean.csv")
 	reader = csv.reader(income_test_file)
 	writer = csv.writer(income_out_file)
-	filename = "income_sym_euclidean.csv"
+	filename = "dataset/income_sym_euclidean.csv"
 	next(reader)
 	writer.writerow(header)
 	for row in reader:
