@@ -7,7 +7,8 @@ from collections import OrderedDict
 # from read_input import transform_income
 
 
-header=("Transaction ID", "Predicted Class", "Actual Class", "Posterior Probability")
+header=("Transaction ID", "Weighted Class", "Predicted Class", "Actual Class", 
+	"Posterior Probability", "Posterior Probability with Weight")
 def getclass(neighbors,p,last_column_num):
 	classVotes={}
 	last_column_num= last_column_num+3
@@ -32,12 +33,18 @@ def getclass(neighbors,p,last_column_num):
 def getClassFromWeight(neighbors,p,last_column_num):
 	weight_class={}
 	last_column_num+=2
-	for i in range(p,last_column_num,2):
-		weight=1/neighbors[i]
+	# print(neighbors)
+	for i in range(p,last_column_num,3):
+		# symm= neighbors[i].split('.')
+		# print(symm)
+		weight = 0
+		if not (float(neighbors[i]) == 0.0):
+			weight=1.0/float(neighbors[i])
 		weight_class[weight]=neighbors[i+1]
 	predicted_class = OrderedDict(sorted(weight_class.items()))
 	class_ = predicted_class.popitem(False)
-	return class_.values()
+	# print(class_)
+	return class_[1]
 
 def getClassSetFromIris():
 	iris_test_file = open("dataset/transformed_iris_test_file.csv")
@@ -78,11 +85,13 @@ def get_knn_iris(k):
 	writer.writerow(header)
 	for row in reader:
 		# print(row)
+		# weight_predicted_class=getClassFromWeight(row,2,k*2)
 		predicted_class = getclass(row,3,k*3)
 		actual_class = test_set_iris.get(row[0])
 		probability = getProbability(row[0], predicted_class, k, filename)
-		# print(probability)
+		# probability_wght = getProbability(row[0], weight_predicted_class, k, filename)
 		result_row=(row[0],predicted_class,actual_class, probability)
+		# result_row=(row[0],weight_predicted_class,predicted_class,actual_class, probability, probability_wght)
 		writer.writerow(result_row)
 
 	iris_out_file.close()
@@ -100,10 +109,13 @@ def get_knn_income(k):
 	writer.writerow(header)
 	for row in reader:
 		id_ = row[0].split('.')
+		# weight_predicted_class=getClassFromWeight(row,2,k*2)
 		predicted_class = getclass(row,0,k*3)
 		actual_class = test_set_income.get(id_[0])
 		probability = getProbability(id_[0],predicted_class, k, filename)
+		# probability_wght = getProbability(id_[0], weight_predicted_class, k, filename)
 		result_row=(row[0],predicted_class,actual_class, probability)
+		# print(weight_predicted_class)
 		writer.writerow(result_row)
 
 	income_out_file.close()
