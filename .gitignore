@@ -22,3 +22,5 @@ Report.pages
 .idea/workspace.xml
 
 .idea/workspace.xml
+
+*.csv

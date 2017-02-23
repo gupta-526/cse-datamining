@@ -53,7 +53,6 @@ def roc():
 
 def precision(matrix):
     return matrix["True Positive"]/(matrix["True Positive"]+matrix["False Positive"])
-
 def recall(matrix):
     return matrix["True Positive"]/(matrix["True Positive"]+matrix["False Negative"])
 
