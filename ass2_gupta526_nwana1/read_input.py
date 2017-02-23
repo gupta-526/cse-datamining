@@ -178,5 +178,5 @@ def transform_entire_income():
 def main():
 	transform_income()
 	transform_entire_income()
-	#transform_iris()
+	transform_iris()
 main()
