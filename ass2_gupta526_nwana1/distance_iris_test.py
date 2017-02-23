@@ -8,9 +8,9 @@ header=["Trans. ID"]
 for i in range(1,k+1):
     header.append("Class")
 #for iris
-with open("dataset/Iris_Test.csv") as file:
+# with open("dataset/Iris_Test.csv") as file:
 #for income
-#with open("dataset/Income_Test_full.csv") as file:
+with open("dataset/transformed_inc_test_full.csv") as file:
     read=csv.reader(file)
     next(read)
     for row in read:
@@ -65,19 +65,19 @@ for i in range(0, len(dat)):
                     top5c[r+1] = c
                 r=r+1
     #for iris
-    top=[i]
+    # top=[i]
     #for income, or data with own ID column
-    #top=[p[0]]
+    top=[p[0]]
     top.append(top5e)
     top.append(top5c)
     calc.append(top)
 file.close
 #for iris
-outE=open("iris_full_euclidean.csv",'w')
-outC=open("iris_full_cosine.csv","w")
+# outE=open("iris_full_euclidean.csv",'w')
+# outC=open("iris_full_cosine.csv","w")
 #for income
-#outE=open("income_sym_euclidean.csv",'w')
-#outC=open("income_sym_cosine.csv","w")3
+outE=open("income_sym_euclidean.csv",'w')
+outC=open("income_sym_cosine.csv","w")
 wrE = csv.writer(outE, quoting=csv.QUOTE_ALL)
 wrC= csv.writer(outC, quoting=csv.QUOTE_ALL)
 wrE.writerow(header)
