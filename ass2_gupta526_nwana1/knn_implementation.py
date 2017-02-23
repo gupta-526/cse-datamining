@@ -102,7 +102,7 @@ def get_knn_income(k):
 		id_ = row[0].split('.')
 		predicted_class = getclass(row,0,k*3)
 		actual_class = test_set_income.get(id_[0])
-		probability = getProbability(predicted_class, row, k, filename)
+		probability = getProbability(id_[0],predicted_class, k, filename)
 		result_row=(row[0],predicted_class,actual_class, probability)
 		writer.writerow(result_row)
 
@@ -111,12 +111,13 @@ def get_knn_income(k):
 	pass
 def getProbability(id_, predicted_class,k,filename):
 	count = 0
-	probability = 0
+	probability = "nope"
 	input_file = open(filename)
 	reader = csv.reader(input_file)
 	for row in reader:
 		_id_=row[0].split('.')
-		print(_id_[0])
+		# print(_id_[0])
+		# print(id_)
 		if id_==_id_[0]:
 			for i in range(1,len(row)):
 				if row[i]==predicted_class:
