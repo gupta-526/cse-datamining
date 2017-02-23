@@ -7,7 +7,7 @@ from collections import OrderedDict
 # from read_input import transform_income
 
 
-
+header=("Transaction ID", "Predicted Class", "Actual Class", "Posterior Probability")
 def getclass(neighbors,p,last_column_num):
 	classVotes={}
 	last_column_num= last_column_num+3
@@ -69,10 +69,10 @@ def getClassSetFromIncome():
 def get_knn_iris(k):
 	test_set_iris = getClassSetFromIris()
 	iris_out_file = open('output/knn_result_iris.csv', 'w')
-	header=("Transactuion ID", "Predicted Class", "Actual Class")
 	iris_test_file = open("dataset/iris_sym_euclidean.csv")
 	reader = csv.reader(iris_test_file)
 	writer = csv.writer(iris_out_file)
+	filename = "iris_full_euclidean.csv"
 	# k=5
 	next(reader)
 	writer.writerow(header)
@@ -80,7 +80,9 @@ def get_knn_iris(k):
 		# print(row)
 		predicted_class = getclass(row,3,k*3)
 		actual_class = test_set_iris.get(row[0])
-		result_row=(row[0],predicted_class,actual_class)
+		probability = getProbability(row[0], predicted_class, k, filename)
+		# print(probability)
+		result_row=(row[0],predicted_class,actual_class, probability)
 		writer.writerow(result_row)
 
 	iris_out_file.close()
@@ -90,29 +92,36 @@ def get_knn_income(k):
 	test_set_income = getClassSetFromIncome()
 	# print(type(test_set_income))
 	income_out_file = open('output/knn_result_income.csv', 'w')
-	header=("Transactuion ID", "Predicted Class", "Actual Class", "Posterior Probability")
 	income_test_file = open("dataset/income_sym_euclidean.csv")
 	reader = csv.reader(income_test_file)
 	writer = csv.writer(income_out_file)
+	filename = "income_sym_euclidean.csv"
 	next(reader)
 	writer.writerow(header)
 	for row in reader:
 		id_ = row[0].split('.')
 		predicted_class = getclass(row,0,k*3)
 		actual_class = test_set_income.get(id_[0])
-		probability = getProbability(predicted_class, row, k, 3)
+		probability = getProbability(predicted_class, row, k, filename)
 		result_row=(row[0],predicted_class,actual_class, probability)
 		writer.writerow(result_row)
 
 	income_out_file.close()
 	income_test_file.close()
 	pass
-def getProbability(predicted_class,neighbors,k,step):
+def getProbability(id_, predicted_class,k,filename):
 	count = 0
-	for i in range(step,len(neighbors),step)
-		if neighbors[i]==predicted_class:
-			count+=1
-	probability = count/k
+	probability = 0
+	input_file = open(filename)
+	reader = csv.reader(input_file)
+	for row in reader:
+		_id_=row[0].split('.')
+		print(_id_[0])
+		if id_==_id_[0]:
+			for i in range(1,len(row)):
+				if row[i]==predicted_class:
+					count+=1
+			probability = count/k
 	return probability
 
 def main():
