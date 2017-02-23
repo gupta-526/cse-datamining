@@ -3,11 +3,10 @@ import csv
 dat=[]
 calc=[]
 #change if needed, where k is number of closest tuples
-k=10
+k=5
 header=["Trans. ID"]
 for i in range(1,k+1):
-    header.append("ID")
-    header.append("Symm")
+    header.append("Class")
 #for iris
 with open("dataset/Iris_Test.csv") as file:
 #for income
@@ -17,9 +16,8 @@ with open("dataset/Iris_Test.csv") as file:
     for row in read:
         p=row
         #next line used for iris only. comment out if for income
-        p=p[0:4]
         if not " ?" in p and not "?" in p:
-            for n in range(0, len(p)):
+            for n in range(0, len(p)-1):
                 p[n]=float(p[n])
             dat.append(p)
 for i in range(0, len(dat)):
@@ -33,13 +31,13 @@ for i in range(0, len(dat)):
         q=dat[j]
         if j!=i:
             e=0
-            for m in range(0, len(p)):
+            for m in range(0, len(p)-1):
                 e=e+abs(p[m]-q[m])
             e=(1/len(p))*e
             num=0
             denomp=0
             denomq=0
-            for m in range(0,len(p)):
+            for m in range(0,len(p)-1):
                 num=num+(p[m]*q[m])
                 denomp=denomp+p[m]*p[m]
                 denomq=denomq+q[m]*q[m]
@@ -47,24 +45,24 @@ for i in range(0, len(dat)):
             e_rep = False
             c_rep = False
             seq=[]
-            for x in range(1,2*k):
-                if x%2!=0:
+            for x in range(0,2*k):
+                if x%2==0:
                     seq.append(x)
             for r in seq:
-                if e < top5e[r] and not e_rep:
+                if e < top5e[r+1] and not e_rep:
                     e_rep=True
-                    if(r<2*k-1):
+                    if(r<2*k-2):
                         top5e[r+2]=top5e[r]
-                        top5e[r+1]=top5e[r-1]
-                    top5e[r -1] = j
-                    top5e[r] = e
-                if  c> top5c[r] and not c_rep :
+                        top5e[r+3]=top5e[r+1]
+                    top5e[r] = p[-1]
+                    top5e[r+1] = e
+                if  c> top5c[r+1] and not c_rep :
                     c_rep = True
-                    if(r<2*k-1):
+                    if(r<2*k-2):
                         top5c[r + 2] = top5c[r]
-                        top5c[r + 1] = top5c[r - 1]
-                    top5c[r - 1] = j
-                    top5c[r] = c
+                        top5c[r + 3] = top5c[r + 1]
+                    top5c[r] = p[-1]
+                    top5c[r+1] = c
                 r=r+1
     #for iris
     top=[i]
@@ -91,9 +89,10 @@ for i in range(0,len(calc)):
     c=row[2]
     rowC=[id]
     rowE=[id]
-    for i in range(0,len(e)):
-        rowC.append(c[i])
-        rowE.append(e[i])
+    for p in range(0,len(e)):
+        if p%2==0:
+            rowC.append(c[p])
+            rowE.append(e[p])
     wrC.writerow(rowC)
     wrE.writerow(rowE)
 outE.close()
