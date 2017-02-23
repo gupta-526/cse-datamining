@@ -30,12 +30,12 @@ def performance_rate_posterior(threshold):
         read=csv.reader(table)
         next(read)
         for row in read:
-            if row[-1] <threshold:
+            if float(row[-1]) <threshold:
                 if row[2] in neg:
                     matrix["True Negative"]=matrix["True Negative"]+1
                 if row[2] in pos:
                     matrix["False Negative"]=matrix["False Positive"]+1
-            if row[2] >=threshold:
+            if float(row[-1]) >=threshold:
                 if row[2] in pos:
                     matrix["True Positive"] = matrix["True Positive"] + 1
                 if row[2] in neg:
@@ -47,8 +47,8 @@ def roc():
     thresholds=[.97,.95,.93,.81,.55,.28,.17,.15,.10,.03]
     table=[]
     for i in thresholds:
-        matrix=performance_rate_posterior(thresholds[i])
-        table.append([thresholds[i],matrix["True Positive"],matrix["False Positive"]])
+        matrix=performance_rate_posterior(i)
+        table.append([i,matrix["True Positive"],matrix["False Positive"]])
     return table
 
 def precision(matrix):
@@ -64,8 +64,11 @@ def f_measure(matrix):
 
 def main():
     matrix=performance_rate_knn()
+    print("matrix")
     print(matrix)
-    #print(roc())
-    #print(f_measure(matrix))
+    print("roc")
+    print(roc())
+    print("f measure")
+    print(f_measure(matrix))
 
 main()
