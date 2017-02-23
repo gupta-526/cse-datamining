@@ -11,10 +11,11 @@ for i in range(1,k+1):
     header.append("Symm")
     header.append("Class")
 #for iris
-with open("dataset/transformed_iris_test_file.csv") as file:
-    with open("dataset/iris_training.csv") as training:
+#with open("dataset/transformed_iris_test_file.csv") as file:
+    #with open("dataset/iris_training.csv") as training:
 #for income
-#with open("dataset/transformed_file.csv") as file:
+with open("dataset/transformed_inc_test_file.csv") as file:
+    with open("dataset/income_training.csv") as training:
         read=csv.reader(file)
         train=csv.reader(training)
         next(read)
@@ -23,21 +24,21 @@ with open("dataset/transformed_iris_test_file.csv") as file:
             q=row
             if not " ?" in q and not "?" in q:
                 #if iris
-                for n in range(0, len(q)-2):
+                #for n in range(0, len(q)-2):
                 #if income
-                #for n in range(0, len(p)-1)
-                    q[n]=float(q[n])
+                for n in range(0, len(q)-1):
+                    if n!=3:
+                        q[n]=float(q[n])
                 trn.append(q)
         for row in read:
             p=row
-            #next line used for iris only. comment out if for income
-            #p=p[0:4]
             if not " ?" in p and not "?" in p:
                 #if iris
-                for n in range(0, len(p)-2):
+                #for n in range(0, len(p)-2):
                 #if income
-                #for n in range(0, len(p)-1)
-                    p[n]=float(p[n])
+                for n in range(0, len(p)-1):
+                    if n!=3:
+                        p[n]=float(p[n])
                 dat.append(p)
     file.close()
     training.close()
@@ -52,8 +53,13 @@ for i in range(0, len(dat)):
         q=trn[j]
         if j!=i:
             e=0
-            for m in range(0, len(p)-3):
-                if m<len(p)-2:
+            #for iris
+            #for m in range(0, len(p)-3):
+            #    if m<len(p)-2:
+            #        e=e+abs(p[m]-q[m])
+            #for income
+            for m in range(0, len(p)-1):
+                if m<len(p)-1 and m!=3:
                     e=e+abs(p[m]-q[m])
             e=(1/(len(p)-2))*e
             num=0
@@ -88,18 +94,18 @@ for i in range(0, len(dat)):
                 #     top5c[r - 1] = j
                 #     top5c[r] = c
                 #r=r+1
-            #for iris
-    top=[i]
+    #for iris
+    #top=[i]
     #for income, or data with own ID column
-    #top=[p[0]]
+    top=[p[0]]
     top.append(top5e)
     #top.append(top5c)
     calc.append(top)
 #for iris
-outE=open("dataset/iris_sym_euclidean.csv",'w')
+#outE=open("dataset/iris_sym_euclidean.csv",'w')
 #outC=open("dataset/iris_sym_cosine.csv","w")
 #for income
-#outE=open("dataset/income_sym_euclidean.csv",'w')
+outE=open("dataset/income_sym_euclidean.csv",'w')
 #outC=open("dataset/income_sym_cosine.csv","w")
 wrE = csv.writer(outE, quoting=csv.QUOTE_ALL)
 #wrC= csv.writer(outC, quoting=csv.QUOTE_ALL)
