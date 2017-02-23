@@ -1,5 +1,7 @@
 
-distance.py
+*.pyc
+
+__pycache__/
 
 lab1/dataset/distance_condensed.py
 
@@ -20,3 +22,5 @@ Report.pages
 .idea/workspace.xml
 
 .idea/workspace.xml
+
+*.csv
