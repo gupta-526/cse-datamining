@@ -1,4 +1,4 @@
-#input: iris or income
+#input: iris or income datasets
 import csv
 dat=[]
 trn=[]
