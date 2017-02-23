@@ -6,7 +6,7 @@ import csv, sys, os, string, operator
 from collections import OrderedDict
 # from read_input import transform_income
 
-# from distance_functions import calculateDist
+
 
 def getclass(neighbors,p,last_column_num):
 	classVotes={}
@@ -90,26 +90,30 @@ def get_knn_income(k):
 	test_set_income = getClassSetFromIncome()
 	# print(type(test_set_income))
 	income_out_file = open('output/knn_result_income.csv', 'w')
-	header=("Transactuion ID", "Predicted Class", "Actual Class")
+	header=("Transactuion ID", "Predicted Class", "Actual Class", "Posterior Probability")
 	income_test_file = open("dataset/income_sym_euclidean.csv")
 	reader = csv.reader(income_test_file)
 	writer = csv.writer(income_out_file)
-	# k=5
 	next(reader)
 	writer.writerow(header)
 	for row in reader:
 		id_ = row[0].split('.')
-		# print(id_[0])
 		predicted_class = getclass(row,0,k*3)
-		# print(row)
 		actual_class = test_set_income.get(id_[0])
-		# print(actual_class)
-		result_row=(row[0],predicted_class,actual_class)
+		probability = getProbability(predicted_class, row, k, 3)
+		result_row=(row[0],predicted_class,actual_class, probability)
 		writer.writerow(result_row)
 
 	income_out_file.close()
 	income_test_file.close()
 	pass
+def getProbability(predicted_class,neighbors,k,step):
+	count = 0
+	for i in range(step,len(neighbors),step)
+		if neighbors[i]==predicted_class:
+			count+=1
+	probability = count/k
+	return probability
 
 def main():
 	k=5
