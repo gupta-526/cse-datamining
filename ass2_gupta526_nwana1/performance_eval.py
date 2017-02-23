@@ -44,7 +44,6 @@ def performance_rate_posterior(threshold):
     return matrix
 
 def roc():
-    #dummy numbers for now
     thresholds=[.97,.95,.93,.81,.55,.28,.17,.15,.10,.03]
     table=[]
     for i in thresholds:
@@ -64,8 +63,9 @@ def f_measure(matrix):
     return 2*num/denom
 
 def main():
-    0
-
-
+    matrix=performance_rate_knn()
+    print(matrix)
+    #print(roc())
+    #print(f_measure(matrix))
 
 main()
