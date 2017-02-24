@@ -36,8 +36,8 @@ def distance_income(k):
         top5c=[]
         top5e=[]
         for s in range(0,3*k):
-            top5c.append(-1)
-            top5e.append(100000)
+            top5e.append(-1)
+            #top5e.append(100000)
         for j in range(0, len(trn)):
             q=trn[j]
             if j!=i:
@@ -49,35 +49,37 @@ def distance_income(k):
                 num=0
                 denomp=0
                 denomq=0
-                # for m in range(0,len(p)-1):
-                #     num=num+(p[m]*q[m])
-                #     denomp=denomp+p[m]*p[m]
-                #     denomq=denomq+q[m]*q[m]
-                # c=num/(denomp*denomq)
+                for m in range(0,len(p)-1):
+                    num=num+(p[m]*q[m])
+                    denomp=denomp+p[m]*p[m]
+                    denomq=denomq+q[m]*q[m]
+                c=num/(denomp*denomq)
                 e_rep = False
                 c_rep = False
                 seq=[]
                 for x in range(0,3*k):
                     if x%3==0:
                         seq.append(x)
+                # for r in seq:
+                #     if e < top5e[r+1] and not e_rep:
+                #         e_rep=True
+                #         if(r<3*k-3):
+                #             top5e[r + 3] = top5e[r]
+                #             top5e[r + 4] = top5e[r + 1]
+                #             top5e[r + 5] = top5e[r + 2]
+                #         top5e[r] = j
+                #         top5e[r + 1] = e
+                #         top5e[r + 2] = q[-1]
                 for r in seq:
-                    if e < top5e[r+1] and not e_rep:
-                        e_rep=True
-                        if(r<3*k-3):
+                    if c> top5e[r + 1] and not c_rep:
+                        c_rep = True
+                        if (r < 3 * k - 3):
                             top5e[r + 3] = top5e[r]
                             top5e[r + 4] = top5e[r + 1]
                             top5e[r + 5] = top5e[r + 2]
                         top5e[r] = j
                         top5e[r + 1] = e
                         top5e[r + 2] = q[-1]
-                    # if  c> top5c[r] and not c_rep :
-                    #     c_rep = True
-                    #     if(r<2*k-1):
-                    #         top5c[r + 2] = top5c[r]
-                    #         top5c[r + 1] = top5c[r - 1]
-                    #     top5c[r - 1] = j
-                    #     top5c[r] = c
-                    #r=r+1
         top=[p[0]]
         top.append(top5e)
         #top.append(top5c)
