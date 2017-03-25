@@ -99,6 +99,10 @@ for row in reader:
 			row[10] = '0'
 		elif row[10] == ' Female':
 			row[10] = '1'
+
+		#handling outlier
+		if row[13]>70:
+			row[13] = '40'
 		
 		if row[14] == " United-States":
 			row[14] = "0"
@@ -185,6 +189,7 @@ for row in reader:
 		while(j<14):
 			row[j]=row[j+1]
 			j=j+1
+		row[14]=""
 		writer.writerow(row)
 
 
