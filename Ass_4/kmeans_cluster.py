@@ -2,8 +2,8 @@ import csv
 
 def initial_centroids(k,dat):
     centroids=[]
-    for i in len(dat):
-        #do something
+    for i in range(0,len(dat)):
+        1
     return centroids
 
 def two_dim_similarity(point,centroid):
@@ -29,6 +29,7 @@ def assign_cluster(data,centroids):
         cluster = -1
         point=data[i]
         for centroid in centroids:
+            1
             #centroid_sims.append([centroid,two_dim_similarity(point,centroids)])
             #centroid_sims.append([centroid,wine_similarity(point,centroids)])
         for i in range(0,len(centroid_sims)):
@@ -39,10 +40,10 @@ def assign_cluster(data,centroids):
     return clusters
 
 def output_file(clusters,name):
-    out= open("Output/{0}.csv".format(name),"w")
+    out= open("Output/{0}".format(name),"w")
     wr=csv.writer(out,quoting=csv.QUOTE_ALL)
-    wr.writerow(["ID"],["Cluster"])
-    for row in range(0,len(clusters)):
+    wr.writerow([["ID"],["Cluster"]])
+    for row in clusters:
         id=row[0]
         cluster=row[1]
         wr.writerow([id,cluster])
@@ -50,13 +51,20 @@ def output_file(clusters,name):
 
 def input_file(name):
     data=[]
-    infile =open("Dataset/{0}".format(name))
+    infile =open("Data/{0}".format(name))
     read=csv.reader(infile)
     next(read)
-    for row in read:
-        for n in range(0,len(row)):
-            row[n]=float(row[n])
-        data.append(row)
+    if name!="wine_quality-red.csv":
+        for row in read:
+            for n in range(0,len(row)):
+                row[n]=float(row[n])
+            data.append(row)
+    else:
+        for row in read:
+            print(row)
+            for n in range(0,len(row)-1):
+                row[n]=float(row[n])
+            data.append(row)
     infile.close()
     return data
 
@@ -65,9 +73,9 @@ def main():
     k=3
     datas=["TwoDimEasy.csv","TwoDimHard.csv","wine_quality-red.csv"]
     for i in datas:
-        data=input_file(datas[i])
+        data=input_file(i)
         centroids=initial_centroids(k,data)
         clusters=assign_cluster(data,centroids)
-        output_file(clusters,datas[i])
+        output_file(clusters,i)
         
 main()
