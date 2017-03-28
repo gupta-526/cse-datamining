@@ -1,0 +1,12 @@
+Authors
+    Marielle Nwana & Niharika Gupta
+Language
+    Python
+Input
+    Input data is contained in the "Data" folder. No manipulation is necessary.
+Output
+    Output from our program will be placed in the "Output" folder. There is a separate file for each input file.
+    The name is identical to that of the input.
+Running the Program
+    To run the program, simply click run for the "kmeans_cluster.py" file in whichever environment is used.
+    This will automatically take the input and deposit the output in the "Output" folder.
