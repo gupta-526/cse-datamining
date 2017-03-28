@@ -50,9 +50,15 @@ def distance_income(k):
                 denomp=0
                 denomq=0
                 for m in range(0,len(p)-1):
+<<<<<<< HEAD
+                    num=num+(float(p[m])*float(q[m]))
+                    denomp=denomp+float(p[m])*float(p[m])
+                    denomq=denomq+float(q[m])*float(q[m])
+=======
                     num=num+(p[m]*q[m])
                     denomp=denomp+p[m]*p[m]
                     denomq=denomq+q[m]*q[m]
+>>>>>>> master
                 c=num/(denomp*denomq)
                 e_rep = False
                 c_rep = False
@@ -80,30 +86,41 @@ def distance_income(k):
                         top5e[r] = j
                         top5e[r + 1] = e
                         top5e[r + 2] = q[-1]
+<<<<<<< HEAD
+                    if  c> top5c[r] and not c_rep :
+                        c_rep = True
+                        if(r<2*k-1):
+                            top5c[r + 2] = top5c[r]
+                            top5c[r + 1] = top5c[r - 1]
+                        top5c[r - 1] = j
+                        top5c[r] = c
+                    r=r+1
+=======
+>>>>>>> master
         top=[p[0]]
         top.append(top5e)
         #top.append(top5c)
         calc.append(top)
     outE=open("dataset/income_sym_euclidean.csv",'w')
-    #outC=open("dataset/income_sym_cosine.csv","w")
+    outC=open("dataset/income_sym_cosine.csv","w")
     wrE = csv.writer(outE, quoting=csv.QUOTE_ALL)
-    #wrC= csv.writer(outC, quoting=csv.QUOTE_ALL)
+    wrC= csv.writer(outC, quoting=csv.QUOTE_ALL)
     wrE.writerow(header)
-    #wrC.writerow(header)
+    wrC.writerow(header)
     for i in range(0,len(calc)):
         row=calc[i]
         id=row[0]
         e=row[1]
-        #c=row[2]
-        #rowC=[id]
+        c=row[1]
+        rowC=[id]
         rowE=[id]
         for i in range(0,len(e)):
-            #rowC.append(c[i])
+            rowC.append(c[i])
             rowE.append(e[i])
-        #wrC.writerow(rowC)
+        wrC.writerow(rowC)
         wrE.writerow(rowE)
     outE.close()
-    #outC.close()
+    outC.close()
 
 def distance_iris(k):
     dat=[]
@@ -154,11 +171,11 @@ def distance_iris(k):
                 num=0
                 denomp=0
                 denomq=0
-                # for m in range(0,len(p)-1):
-                #     num=num+(p[m]*q[m])
-                #     denomp=denomp+p[m]*p[m]
-                #     denomq=denomq+q[m]*q[m]
-                # c=num/(denomp*denomq)
+                for m in range(0,len(p)-2):
+                    num=num+(float(p[m])*float(q[m]))
+                    denomp=denomp+float(p[m])*float(p[m])
+                    denomq=denomq+float(q[m])*float(q[m])
+                c=num/(denomp*denomq)
                 e_rep = False
                 c_rep = False
                 seq=[]
@@ -175,38 +192,38 @@ def distance_iris(k):
                         top5e[r] = j
                         top5e[r + 1] = e
                         top5e[r + 2] = q[-1]
-                    # if  c> top5c[r] and not c_rep :
-                    #     c_rep = True
-                    #     if(r<2*k-1):
-                    #         top5c[r + 2] = top5c[r]
-                    #         top5c[r + 1] = top5c[r - 1]
-                    #     top5c[r - 1] = j
-                    #     top5c[r] = c
-                    #r=r+1
+                    if  c> top5c[r] and not c_rep :
+                        c_rep = True
+                        if(r<2*k-1):
+                            top5c[r + 2] = top5c[r]
+                            top5c[r + 1] = top5c[r - 1]
+                        top5c[r - 1] = j
+                        top5c[r] = c
+                    r=r+1
         top=[i]
         top.append(top5e)
-        #top.append(top5c)
+        top.append(top5c)
         calc.append(top)
     outE=open("dataset/iris_sym_euclidean.csv",'w')
-    #outC=open("dataset/iris_sym_cosine.csv","w")
+    outC=open("dataset/iris_sym_cosine.csv","w")
     wrE = csv.writer(outE, quoting=csv.QUOTE_ALL)
-    #wrC= csv.writer(outC, quoting=csv.QUOTE_ALL)
+    wrC= csv.writer(outC, quoting=csv.QUOTE_ALL)
     wrE.writerow(header)
-    #wrC.writerow(header)
+    wrC.writerow(header)
     for i in range(0,len(calc)):
         row=calc[i]
         id=row[0]
         e=row[1]
-        #c=row[2]
-        #rowC=[id]
+        c=row[1]
+        rowC=[id]
         rowE=[id]
         for i in range(0,len(e)):
-            #rowC.append(c[i])
+            rowC.append(c[i])
             rowE.append(e[i])
-        #wrC.writerow(rowC)
+        wrC.writerow(rowC)
         wrE.writerow(rowE)
     outE.close()
-    #outC.close()
+    outC.close()
 
 
 def main():
