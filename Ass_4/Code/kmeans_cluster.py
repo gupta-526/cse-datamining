@@ -42,8 +42,15 @@ def compute_centroid(cluster):
     centroid=-1
     return centroid
 
-def output_file(clusters):
-
+def output_file(clusters,name):
+    out= open("Output/{0}.csv".format(name),"w")
+    wr=csv.writer(out,quoting=csv.QUOTE_ALL)
+    wr.writerow(["ID"],["Cluster"])
+    for row in range(0,len(clusters)):
+        id=row[0]
+        cluster=row[1]
+        wr.writerow([id,cluster])
+    out.close()
 
 #check if the cluster is right or not
 def compare_clustering(p):
