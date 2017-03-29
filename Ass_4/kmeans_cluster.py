@@ -28,12 +28,13 @@ def two_dim_calculate_centroid(data,old_centroids,old_clusters):
                 count+=1
                 avg_one+=data[i][1]
                 avg_two+=data[i][2]
+
         avg_one=avg_one/count
         avg_two=avg_two/count
         avg=[-1,avg_one,avg_two,-1]
         best_sim=1000
         for i in range(0,len(data)):
-            sim=two_dim_similarity(data[i],avg,data)
+            sim=two_dim_similarity(data[i],avg)
             if sim<best_sim:
                 new_centroids[j]=i
     return new_centroids
@@ -43,8 +44,6 @@ def two_dim_calculate_centroid(data,old_centroids,old_clusters):
 def wine_calculate_centroid(data,old_centroids,old_clusters):
     new_centroids=old_centroids
     for j in range(0,len(old_centroids)):
-        avg_one = 0
-        avg_two = 0
         count = 0
         avg=[-1]
         for i in range(0, len(old_clusters)):
@@ -57,25 +56,25 @@ def wine_calculate_centroid(data,old_centroids,old_clusters):
         avg.append(-1)
         best_sim=1000
         for i in range(0,len(data)):
-            sim=wine_similarity(data[i],avg,data)
+            sim=wine_similarity(data[i],avg)
             if sim<best_sim:
                 new_centroids[j]=i
     return new_centroids
 
 
 #complete
-def two_dim_similarity(point,centroid,data):
+def two_dim_similarity(point,centroid):
     e = 0
-    q=data[centroid]
+    q=centroid
     for m in range(1,3 ):
         e+=abs(point[m] - q[m])
     return (1 /(len(point)-1)) * e
 
 
 #complete
-def wine_similarity(point,centroid,data):
+def wine_similarity(point,centroid):
     e = 0
-    q=data[centroid]
+    q=centroid
     for m in range(1,len(point)-1):
         e = e + abs(point[m] - q[m])
     if point[-1]!=q[-1]:
@@ -86,12 +85,12 @@ def wine_similarity(point,centroid,data):
 #complete
 def wine_assign_cluster(data,centroids):
     clusters=[]
-    best_sim=100000
     for i in range(0,len(data)):
+        best_sim = 100000
         cluster = -1
         point=data[i]
         for centroid in centroids:
-            sim=wine_similarity(point,centroid,data)
+            sim=wine_similarity(point,data[centroid])
             if sim<best_sim:
                 best_sim=sim
                 cluster=centroid
@@ -102,12 +101,12 @@ def wine_assign_cluster(data,centroids):
 #complete
 def two_dim_assign_cluster(data,centroids):
     clusters=[]
-    best_sim=10000
     for i in range(0,len(data)):
+        best_sim = 10000
         cluster = -1
         point=data[i]
         for centroid in centroids:
-            sim=two_dim_similarity(point,centroid,data)
+            sim=two_dim_similarity(point,data[centroid])
             if sim<best_sim:
                 best_sim=sim
                 cluster=centroid
