@@ -11,7 +11,7 @@ def initialize_centroids(data, k):
     centroids=[]
     # test = random.choice(data)
     for i in range(0, int(k)):
-        centroids.append(random.randint(1,length-1))
+        centroids.append(random.randint(1,length-1))c
     # print(test)
     return centroids
 
@@ -24,25 +24,25 @@ def two_dim_calculate_centroid(data,old_centroids,old_clusters):
         avg_two = 0
         count = 0
         for i in range(0, len(old_clusters)):
-            if old_centroids[j] ==old_clusters[i]:
+            if old_centroids[j] == old_clusters[i]:
                 count+=1
                 avg_one+=data[i][1]
                 avg_two+=data[i][2]
-
         avg_one=avg_one/count
         avg_two=avg_two/count
         avg=[-1,avg_one,avg_two,-1]
         best_sim=1000
         for i in range(0,len(data)):
-            sim=two_dim_similarity(data[i],avg)
-            if sim<best_sim:
-                new_centroids[j]=i
+            if old_centroids[j] == old_clusters[i]:
+                sim=two_dim_similarity(data[i],avg)
+                if sim<best_sim:
+                    new_centroids[j] = i
     return new_centroids
 
 
 #incomplete
 def wine_calculate_centroid(data,old_centroids,old_clusters):
-    new_centroids=old_centroids
+    new_centroids=[-1 for i in len(old_centroids)]
     for j in range(0,len(old_centroids)):
         count = 0
         avg=[-1]
