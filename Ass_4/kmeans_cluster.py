@@ -114,7 +114,7 @@ def main():
         new=[]
         while not converges:
             itter+=1
-            centroids=initialize_centroids(k,data)
+            centroids=initialize_centroids(data,k)
             new=two_dim_assign_cluster(data,centroids)
             converges=does_converge(old,new,itter)
             output_file(new,i)
@@ -126,7 +126,7 @@ def main():
     new = []
     while not converges:
         itter += 1
-    centroids = initialize_centroids(k, data)
+    centroids = initialize_centroids(data, k)
     new = wine_assign_cluster(data, centroids)
     output_file(new, i)
 
