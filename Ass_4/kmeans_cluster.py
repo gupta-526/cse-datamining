@@ -1,12 +1,11 @@
-import csv
-
-
-#imcomplete
-def initial_centroids(k,dat):
+import csv, random
+#incomplete
+def initialize_centroids(data, k):
     centroids=[]
-    for i in range(0,len(dat)):
-        1
+    for i in range(0, k):
+        centroids.append()
     return centroids
+
 
 #complete
 def two_dim_similarity(point,centroid):
@@ -80,7 +79,7 @@ def main():
     datas=["TwoDimEasy.csv","TwoDimHard.csv","wine_quality-red.csv"]
     for i in datas:
         data=input_file(i)
-        centroids=initial_centroids(k,data)
+        centroids=initialize_centroids(k,data)
         clusters=assign_cluster(data,centroids)
         output_file(clusters,i)
 
