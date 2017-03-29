@@ -24,23 +24,26 @@ def reassign_centroids(data,k,centroids):
 
 #incomplete
 def is_outlier(point,centroid,data):
-    1
+
+    return
 
 
 #complete
-def two_dim_similarity(point,centroid):
+def two_dim_similarity(point,centroid,data):
     e = 0
+    q=data[centroid]
     for m in range(1,3 ):
-        e+=abs(point[m] - centroid[m])
+        e+=abs(point[m] - q[m])
     return (1 /(len(point)-1)) * e
 
 
 #complete
-def wine_similarity(point,centroid):
+def wine_similarity(point,centroid,data):
     e = 0
-    for m in range(1,13):
-        e = e + abs(point[m] - centroid[m])
-    if point[-1]!=centroid[-1]:
+    q=data[centroid]
+    for m in range(1,len(point)-1):
+        e = e + abs(point[m] - q[m])
+    if point[-1]!=q[-1]:
         e+=1
     return (1 /(len(point)-1)) * e
 
@@ -53,10 +56,10 @@ def wine_assign_cluster(data,centroids):
         cluster = -1
         point=data[i]
         for centroid in centroids:
-            sim=[centroid,wine_similarity(point,centroid)]
+            sim=wine_similarity(point,centroid,data)
             if sim<best_sim:
                 best_sim=sim
-                cluster=centroid[0]
+                cluster=centroid
         clusters.append(cluster)
     return clusters
 
@@ -69,17 +72,17 @@ def two_dim_assign_cluster(data,centroids):
         cluster = -1
         point=data[i]
         for centroid in centroids:
-            sim=[centroid,two_dim_similarity(point,centroids)]
+            sim=two_dim_similarity(point,centroid,data)
             if sim<best_sim:
                 best_sim=sim
-                cluster=centroid[0]
+                cluster=centroid
         clusters.append(cluster)
     return clusters
 
 
 #complete
-def does_converge(old,new,iter):
-        if iter> MAX_ITERATIONS:
+def does_converge(old,new,iteration):
+        if iteration> MAX_ITERATIONS:
             return True
         return old==new
 
@@ -89,10 +92,10 @@ def output_file(clusters,name):
     out= open("Output/{0}".format(name),"w")
     wr=csv.writer(out,quoting=csv.QUOTE_ALL)
     wr.writerow(["ID","Cluster"])
-    for row in clusters:
-        id=row[0]
-        cluster=row[1]
-        wr.writerow(id,cluster)
+    for i in range(0,len(clusters)):
+        id=i+1
+        cluster=clusters[i]
+        wr.writerow([id,cluster])
     out.close()
 
 
@@ -129,29 +132,29 @@ def main():
     for i in datas:
         converges=False
         data=input_file(i)
-        itter = 0
+        iteration = 0
         centroids = initialize_centroids(data, k)
         old_clusters=two_dim_assign_cluster(data,centroids)
         new_clusters=[]
         while not converges:
-            itter+=1
+            iteration+=1
             centroids=reassign_centroids(data,k,centroids)
             new_clusters=two_dim_assign_cluster(data,centroids)
-            converges=does_converge(old_clusters,new_clusters)
+            converges=does_converge(old_clusters,new_clusters,iteration)
             centroids=initialize_centroids(data,k)
             output_file(new_clusters,i)
     data="wine_quality-red.csv"
     converges = False
     data = input_file(i)
-    itter = 0
+    iteration = 0
     centroids = initialize_centroids(data, k)
     old_clusters = two_dim_assign_cluster(data, centroids)
     new_clusters = []
     while not converges:
-        itter += 1
+        iteration += 1
         centroids = reassign_centroids(data, k, centroids)
         new_clusters = wine_assign_cluster(data, centroids)
-        converges = does_converge(old_clusters, new_clusters)
+        converges = does_converge(old_clusters, new_clusters,iteration)
         centroids = initialize_centroids(data, k)
         output_file(new_clusters, i)
 
