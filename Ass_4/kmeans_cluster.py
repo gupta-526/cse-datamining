@@ -2,10 +2,12 @@ import csv, random
 MAX_ITTERATIONS=1000
 #incomplete
 def initialize_centroids(data, k):
+    length = len(data)
     centroids=[]
+    # test = random.choice(data)
     for i in range(0, k):
-        centroids.append(random.choice(data))
-    print(centroids)
+        centroids.append(random.randint(1,length-1))
+    # print(test)
     return centroids
 
 #incomplete
@@ -113,6 +115,10 @@ def main():
         old=two_dim_assign_cluster(data,centroids)
         new=[]
         while not converges:
+            centroids=initialize_centroids(data,k)
+            clusters=two_dim_assign_cluster(data,centroids)
+            converges=does_converge()
+            output_file(clusters,i)
             itter+=1
             centroids=initialize_centroids(data,k)
             new=two_dim_assign_cluster(data,centroids)
