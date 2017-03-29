@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="63650ef1-d700-46d4-922e-2d69971f075c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ass_4/ReadMe" afterPath="$PROJECT_DIR$/Ass_4/ReadMe" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ass_4/kmeans_cluster.py" afterPath="$PROJECT_DIR$/Ass_4/kmeans_cluster.py" />
     </list>
     <ignored path="cse-datamining-master.iws" />
@@ -28,12 +27,12 @@
         <entry file="file://$PROJECT_DIR$/Ass_4/kmeans_cluster.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
               <folding>
-                <element signature="e#213#323#0" expanded="false" />
-                <element signature="e#376#532#0" expanded="false" />
-                <element signature="e#1281#1516#0" expanded="false" />
-                <element signature="e#1554#1992#0" expanded="false" />
+                <element signature="e#234#344#0" expanded="false" />
+                <element signature="e#397#553#0" expanded="false" />
+                <element signature="e#1368#1603#0" expanded="false" />
+                <element signature="e#1641#2079#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -457,7 +456,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490733691525</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="created performance eval, will test once classifier is completed&#10;edited readme">
+      <created>1490746417149</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1490746417149</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -817,12 +823,12 @@
     <entry file="file://$PROJECT_DIR$/Ass_4/kmeans_cluster.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
           <folding>
-            <element signature="e#213#323#0" expanded="false" />
-            <element signature="e#376#532#0" expanded="false" />
-            <element signature="e#1281#1516#0" expanded="false" />
-            <element signature="e#1554#1992#0" expanded="false" />
+            <element signature="e#234#344#0" expanded="false" />
+            <element signature="e#397#553#0" expanded="false" />
+            <element signature="e#1368#1603#0" expanded="false" />
+            <element signature="e#1641#2079#0" expanded="false" />
           </folding>
         </state>
       </provider>

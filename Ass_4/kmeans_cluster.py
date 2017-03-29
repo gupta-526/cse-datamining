@@ -1,4 +1,5 @@
 import csv, random
+MAX_ITTERATIONS=1000
 #incomplete
 def initialize_centroids(data, k):
     centroids=[]
@@ -41,6 +42,10 @@ def assign_cluster(data,centroids):
                 cluster=centroid_sims[i[0]]
         clusters.append([[point[0]],[cluster]])
     return clusters
+
+#incomplete
+def does_converge(oldcentroids,newcentroids,itter):
+
 
 #complete
 def output_file(clusters,name):
