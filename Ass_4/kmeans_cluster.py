@@ -81,7 +81,7 @@ def output_file(clusters,name):
     for row in clusters:
         id=row[0]
         cluster=row[1]
-        wr.writerow([id,cluster])
+        wr.writerow(id,cluster)
     out.close()
 
 
