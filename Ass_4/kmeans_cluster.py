@@ -8,6 +8,9 @@ def initialize_centroids(data, k):
     print(centroids)
     return centroids
 
+#incomplete
+def is_outlier(point,centroid,data):
+    1
 
 #complete
 def two_dim_similarity(point,centroid):
