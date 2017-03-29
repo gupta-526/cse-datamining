@@ -16,7 +16,7 @@ def is_outlier(point,centroid,data):
 def two_dim_similarity(point,centroid):
     e = 0
     for m in range(1,3 ):
-        e = e + abs(point[m] - centroid[m])
+        e+=abs(point[m] - centroid[m])
     return (1 /(len(point)-1)) * e
 
 
@@ -26,25 +26,23 @@ def wine_similarity(point,centroid):
     for m in range(1,13):
         e = e + abs(point[m] - centroid[m])
     if point[-1]!=centroid[-1]:
-        e=e+1
+        e+=1
     return (1 /(len(point)-1)) * e
 
 
 #complete
 def wine_assign_cluster(data,centroids):
     clusters=[]
-    best_sim=10000
-    centroid_sims=[]
+    best_sim=100000
     for i in range(0,len(data)):
         cluster = -1
         point=data[i]
         for centroid in centroids:
-            centroid_sims.append([centroid,wine_similarity(point,centroids)])
-        for i in range(0,len(centroid_sims)):
-            if centroid_sims[i[1]]<best_sim:
-                best_sim=centroid_sims[i[1]]
-                cluster=centroid_sims[i[0]]
-        clusters.append([[point[0]],[cluster]])
+            sim=[centroid,wine_similarity(point,centroid)]
+            if sim<best_sim:
+                best_sim=sim
+                cluster=centroid[0]
+        clusters.append(cluster)
     return clusters
 
 
@@ -52,17 +50,15 @@ def wine_assign_cluster(data,centroids):
 def two_dim_assign_cluster(data,centroids):
     clusters=[]
     best_sim=10000
-    centroid_sims=[]
     for i in range(0,len(data)):
         cluster = -1
         point=data[i]
         for centroid in centroids:
-            centroid_sims.append([centroid,two_dim_similarity(point,centroids)])
-        for i in range(0,len(centroid_sims)):
-            if centroid_sims[i[1]]<best_sim:
-                best_sim=centroid_sims[i[1]]
-                cluster=centroid_sims[i[0]]
-        clusters.append([[point[0]],[cluster]])
+            sim=[centroid,two_dim_similarity(point,centroids)]
+            if sim<best_sim:
+                best_sim=sim
+                cluster=centroid[0]
+        clusters.append(cluster)
     return clusters
 
 
@@ -113,15 +109,25 @@ def main():
     for i in datas:
         converges=False
         data=input_file(i)
+        itter = 0
+        old=two_dim_assign_cluster(data,centroids)
+        new=[]
         while not converges:
+            itter+=1
             centroids=initialize_centroids(k,data)
-            clusters=two_dim_assign_cluster(data,centroids)
-            converges=does_converge()
-            output_file(clusters,i)
+            new=two_dim_assign_cluster(data,centroids)
+            converges=does_converge(old,new,itter)
+            output_file(new,i)
     data="wine_quality-red.csv"
-    data = input_file(i)
+    data = input_file(data)
+    converges = False
+    itter = 0
+    old = wine_assign_cluster(data, centroids)
+    new = []
+    while not converges:
+        itter += 1
     centroids = initialize_centroids(k, data)
-    clusters = wine_assign_cluster(data, centroids)
-    output_file(clusters, i)
+    new = wine_assign_cluster(data, centroids)
+    output_file(new, i)
 
 main()
