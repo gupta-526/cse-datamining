@@ -11,7 +11,7 @@ def initialize_centroids(data, k):
     centroids=[]
     # test = random.choice(data)
     for i in range(0, int(k)):
-        centroids.append(random.randint(1,length-1))c
+        centroids.append(random.randint(1,length-1))
     # print(test)
     return centroids
 
@@ -22,10 +22,10 @@ def two_dim_calculate_centroid(data,old_centroids,old_clusters):
     for j in range(0,len(old_centroids)):
         avg_one = 0
         avg_two = 0
-        count = 0
+        count = 1
         for i in range(0, len(old_clusters)):
             if old_centroids[j] == old_clusters[i]:
-                count+=1
+                count = count+1
                 avg_one+=data[i][1]
                 avg_two+=data[i][2]
         avg_one=avg_one/count
