@@ -1,4 +1,4 @@
-import csv, random
+import csv, random, os, sys
 MAX_ITTERATIONS=1000
 #incomplete
 def initialize_centroids(data, k):
@@ -93,10 +93,13 @@ def input_file(name):
     infile.close()
     return data
 
+def get_user_input():
+    k_val = input("Please enter a value for k: ")
+    return k_val
 #probably complete
 def main():
     #ask user for value of k
-    k=3
+    k=get_user_input()
     datas=["TwoDimEasy.csv","TwoDimHard.csv"]
     for i in datas:
         data=input_file(i)
