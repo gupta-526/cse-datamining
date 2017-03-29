@@ -7,9 +7,10 @@ MAX_ITERATIONS=1000
 #incomplete
 def initialize_centroids(data, k):
     length = len(data)
+    # print(length)
     centroids=[]
     # test = random.choice(data)
-    for i in range(0, k):
+    for i in range(0, int(k)):
         centroids.append(random.randint(1,length-1))
     # print(test)
     return centroids
