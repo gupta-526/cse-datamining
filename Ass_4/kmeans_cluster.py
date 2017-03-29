@@ -1,5 +1,9 @@
 import csv, random, os, sys
-MAX_ITTERATIONS=1000
+
+
+MAX_ITERATIONS=1000
+
+
 #incomplete
 def initialize_centroids(data, k):
     length = len(data)
@@ -10,9 +14,17 @@ def initialize_centroids(data, k):
     # print(test)
     return centroids
 
+
+#incomplete
+def reassign_centroids(data,k,centroids):
+
+    return centroids
+
+
 #incomplete
 def is_outlier(point,centroid,data):
     1
+
 
 #complete
 def two_dim_similarity(point,centroid):
@@ -65,8 +77,8 @@ def two_dim_assign_cluster(data,centroids):
 
 
 #complete
-def does_converge(old,new,itter):
-        if itter> MAX_ITTERATIONS:
+def does_converge(old,new,iter):
+        if iter> MAX_ITERATIONS:
             return True
         return old==new
 
@@ -102,41 +114,44 @@ def input_file(name):
     infile.close()
     return data
 
+#complete
 def get_user_input():
     k_val = input("Please enter a value for k: ")
     return k_val
 
+
 #incomplete
 def main():
     #ask user for value of k
-    k=k_val
+    k=get_user_input()
     datas=["TwoDimEasy.csv","TwoDimHard.csv"]
     for i in datas:
         converges=False
         data=input_file(i)
         itter = 0
-        old=two_dim_assign_cluster(data,centroids)
-        new=[]
+        centroids = initialize_centroids(data, k)
+        old_clusters=two_dim_assign_cluster(data,centroids)
+        new_clusters=[]
         while not converges:
-            centroids=initialize_centroids(data,k)
-            clusters=two_dim_assign_cluster(data,centroids)
-            converges=does_converge()
-            output_file(clusters,i)
             itter+=1
+            centroids=reassign_centroids(data,k,centroids)
+            new_clusters=two_dim_assign_cluster(data,centroids)
+            converges=does_converge(old_clusters,new_clusters)
             centroids=initialize_centroids(data,k)
-            new=two_dim_assign_cluster(data,centroids)
-            converges=does_converge(old,new,itter)
-            output_file(new,i)
+            output_file(new_clusters,i)
     data="wine_quality-red.csv"
-    data = input_file(data)
     converges = False
+    data = input_file(i)
     itter = 0
-    old = wine_assign_cluster(data, centroids)
-    new = []
+    centroids = initialize_centroids(data, k)
+    old_clusters = two_dim_assign_cluster(data, centroids)
+    new_clusters = []
     while not converges:
         itter += 1
-    centroids = initialize_centroids(data, k)
-    new = wine_assign_cluster(data, centroids)
-    output_file(new, i)
+        centroids = reassign_centroids(data, k, centroids)
+        new_clusters = wine_assign_cluster(data, centroids)
+        converges = does_converge(old_clusters, new_clusters)
+        centroids = initialize_centroids(data, k)
+        output_file(new_clusters, i)
 
 main()
