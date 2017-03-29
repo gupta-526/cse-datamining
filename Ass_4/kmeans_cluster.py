@@ -4,7 +4,8 @@ MAX_ITTERATIONS=1000
 def initialize_centroids(data, k):
     centroids=[]
     for i in range(0, k):
-        centroids.append()
+        centroids.append(random.choice(data))
+    print(centroids)
     return centroids
 
 
@@ -15,6 +16,7 @@ def two_dim_similarity(point,centroid):
         e = e + abs(point[m] - centroid[m])
     return (1 /(len(point)-1)) * e
 
+
 #complete
 def wine_similarity(point,centroid):
     e = 0
@@ -23,6 +25,7 @@ def wine_similarity(point,centroid):
     if point[-1]!=centroid[-1]:
         e=e+1
     return (1 /(len(point)-1)) * e
+
 
 #complete
 def wine_assign_cluster(data,centroids):
@@ -41,6 +44,7 @@ def wine_assign_cluster(data,centroids):
         clusters.append([[point[0]],[cluster]])
     return clusters
 
+
 #complete
 def two_dim_assign_cluster(data,centroids):
     clusters=[]
@@ -58,11 +62,14 @@ def two_dim_assign_cluster(data,centroids):
         clusters.append([[point[0]],[cluster]])
     return clusters
 
+
 #complete
 def does_converge(old,new,itter):
         if itter> MAX_ITTERATIONS:
             return True
         return old==new
+
+
 #complete
 def output_file(clusters,name):
     out= open("Output/{0}".format(name),"w")
@@ -73,6 +80,7 @@ def output_file(clusters,name):
         cluster=row[1]
         wr.writerow([id,cluster])
     out.close()
+
 
 #complete
 def input_file(name):
@@ -93,16 +101,20 @@ def input_file(name):
     infile.close()
     return data
 
-#probably complete
+
+#incomplete
 def main():
     #ask user for value of k
     k=3
     datas=["TwoDimEasy.csv","TwoDimHard.csv"]
     for i in datas:
+        converges=False
         data=input_file(i)
-        centroids=initialize_centroids(k,data)
-        clusters=two_dim_assign_cluster(data,centroids)
-        output_file(clusters,i)
+        while not converges:
+            centroids=initialize_centroids(k,data)
+            clusters=two_dim_assign_cluster(data,centroids)
+            converges=does_converge()
+            output_file(clusters,i)
     data="wine_quality-red.csv"
     data = input_file(i)
     centroids = initialize_centroids(k, data)

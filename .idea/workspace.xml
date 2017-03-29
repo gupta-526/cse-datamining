@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="63650ef1-d700-46d4-922e-2d69971f075c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ass_4/clustering_analysis.py" />
+    <list default="true" id="63650ef1-d700-46d4-922e-2d69971f075c" name="Default" comment="made two cluster assignment functions">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ass_4/kmeans_cluster.py" afterPath="$PROJECT_DIR$/Ass_4/kmeans_cluster.py" />
     </list>
@@ -27,28 +26,17 @@
       <file leaf-file-name="kmeans_cluster.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Ass_4/kmeans_cluster.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+            <state relative-caret-position="246">
+              <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
               <folding>
-                <element signature="e#91#177#0" expanded="false" />
-                <element signature="e#234#344#0" expanded="false" />
-                <element signature="e#397#553#0" expanded="false" />
-                <element signature="e#610#1098#0" expanded="false" />
-                <element signature="e#1158#1649#0" expanded="false" />
-                <element signature="e#1703#1777#0" expanded="false" />
-                <marker date="1490747187000" expanded="false" signature="1819:2059" ph="..." />
-                <marker date="1490747187000" expanded="false" signature="2092:2535" ph="..." />
+                <element signature="e#274#384#0" expanded="false" />
+                <element signature="e#438#594#0" expanded="false" />
+                <element signature="e#652#1140#0" expanded="false" />
+                <element signature="e#1201#1692#0" expanded="false" />
+                <element signature="e#1747#1821#0" expanded="false" />
+                <element signature="e#2144#2582#0" expanded="false" />
+                <marker date="1490748005000" expanded="false" signature="1865:2105" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReadMe" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Ass_4/ReadMe">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -476,14 +464,21 @@
       <option name="project" value="LOCAL" />
       <updated>1490746713492</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="made two cluster assignment functions">
+      <created>1490747199546</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1490747199546</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="14" width="1280" height="773" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26290706" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26290706" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.50277996" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32859176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -518,7 +513,8 @@
     <MESSAGE value="created performance eval, will test once classifier is completed&#10;edited output file.&#10;added comments for what needs work." />
     <MESSAGE value="created performance eval, will test once classifier is completed&#10;edited readme" />
     <MESSAGE value="added max itter constant and functions for converges" />
-    <option name="LAST_COMMIT_MESSAGE" value="added max itter constant and functions for converges" />
+    <MESSAGE value="made two cluster assignment functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="made two cluster assignment functions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -819,14 +815,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Ass_4/ReadMe">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Ass_4/clustering_analysis.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -835,19 +823,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Ass_4/ReadMe">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Ass_4/kmeans_cluster.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+        <state relative-caret-position="246">
+          <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
           <folding>
-            <element signature="e#91#177#0" expanded="false" />
-            <element signature="e#234#344#0" expanded="false" />
-            <element signature="e#397#553#0" expanded="false" />
-            <element signature="e#610#1098#0" expanded="false" />
-            <element signature="e#1158#1649#0" expanded="false" />
-            <element signature="e#1703#1777#0" expanded="false" />
-            <marker date="1490747187000" expanded="false" signature="1819:2059" ph="..." />
-            <marker date="1490747187000" expanded="false" signature="2092:2535" ph="..." />
+            <element signature="e#274#384#0" expanded="false" />
+            <element signature="e#438#594#0" expanded="false" />
+            <element signature="e#652#1140#0" expanded="false" />
+            <element signature="e#1201#1692#0" expanded="false" />
+            <element signature="e#1747#1821#0" expanded="false" />
+            <element signature="e#2144#2582#0" expanded="false" />
+            <marker date="1490748005000" expanded="false" signature="1865:2105" ph="..." />
           </folding>
         </state>
       </provider>
