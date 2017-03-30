@@ -42,17 +42,17 @@ def two_dim_calculate_centroid(data,old_centroids,old_clusters):
 
 #incomplete
 def wine_calculate_centroid(data,old_centroids,old_clusters):
-    new_centroids=[-1 for i in len(old_centroids)]
+    new_centroids=old_centroids
     for j in range(0,len(old_centroids)):
-        count = 0
-        avg=[-1]
+        count = 1
+        avg=[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
         for i in range(0, len(old_clusters)):
-            if old_centroids[j] ==old_clusters[i]:
+            if old_centroids[j] == old_clusters[i]:
                 count+=1
                 for m in range(1,len(data[i])-1):
-                    avg[i]+=data[i][m]
+                    avg[m]+=data[i][m]
         for x in range(1,len(avg)):
-            avg[x]=avg[x]/count
+                avg[x]=avg[x]/count
         avg.append(-1)
         best_sim=1000
         for i in range(0,len(data)):
@@ -175,6 +175,10 @@ def main():
             centroids=two_dim_calculate_centroid(data,centroids,old_clusters)
             new_clusters=two_dim_assign_cluster(data,centroids)
             converges=does_converge(old_clusters,new_clusters,iteration)
+        for m in range(0,len(centroids)):
+            for j in range(0,len(data)):
+                if new_clusters[j]==centroids[m]:
+                    new_clusters[j]=m+1
         output_file(new_clusters,i)
     data="wine_quality-red.csv"
     converges = False
@@ -188,6 +192,6 @@ def main():
         centroids = wine_calculate_centroid(data,centroids,old_clusters)
         new_clusters = wine_assign_cluster(data, centroids)
         converges = does_converge(old_clusters, new_clusters,iteration)
-    output_file(new_clusters, data)
+    output_file(new_clusters, "wine_quality-red.csv")
 
 main()
