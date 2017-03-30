@@ -51,7 +51,7 @@ def wine_calculate_centroid(data,old_centroids,old_clusters):
 # >>>>>>> Stashed changes
     for j in range(0,len(old_centroids)):
         count = 1
-        avg=[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
+        avg=[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
         for i in range(0, len(old_clusters)):
             if old_centroids[j] == old_clusters[i]:
                 count+=1
