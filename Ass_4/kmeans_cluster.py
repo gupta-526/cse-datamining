@@ -54,10 +54,11 @@ def wine_calculate_centroid(data,old_centroids,old_clusters):
                 avg[x]=avg[x]/count
         best_sim=1000
         for i in range(0,len(data)):
-            sim=wine_similarity(data[i],avg)
-            if sim<best_sim:
-                best_sim=sim
-                new_centroids[j]=i
+            if old_centroids[j] == old_clusters[i]:
+                sim=wine_similarity(data[i],avg)
+                if sim<best_sim:
+                    best_sim=sim
+                    new_centroids[j]=i
     return new_centroids
 
 
@@ -193,8 +194,6 @@ def main():
         centroids = wine_calculate_centroid(data,centroids,old_clusters)
         old_clusters=new_clusters.copy()
         new_clusters = wine_assign_cluster(data, centroids)
-        print(old_clusters)
-        print(new_clusters)
         converges = does_converge(old_clusters, new_clusters, iteration)
     for m in range(0, len(centroids)):
         for j in range(0, len(data)):
