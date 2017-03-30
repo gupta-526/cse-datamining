@@ -43,7 +43,12 @@ def two_dim_calculate_centroid(data,old_centroids,old_clusters):
 
 #incomplete
 def wine_calculate_centroid(data,old_centroids,old_clusters):
-    new_centroids=old_centroids
+# <<<<<<< Updated upstream
+    # new_centroids=old_centroids
+# =======
+    # print(type(old_clusters))
+    # new_centroids=[-1 for i in len(old_centroids)]
+# >>>>>>> Stashed changes
     for j in range(0,len(old_centroids)):
         count = 1
         avg=[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
@@ -190,7 +195,12 @@ def main():
     new_clusters = []
     while not converges:
         iteration += 1
-        centroids = wine_calculate_centroid(data, centroids, old_clusters)
+        # Updated upstream
+        # centroids = wine_calculate_centroid(data, centroids, old_clusters)
+
+        # print("clusters: ", type(data))
+        # centroids = wine_calculate_centroid(data,centroids,old_clusters)
+        # Stashed changes
         new_clusters = wine_assign_cluster(data, centroids)
         converges = does_converge(old_clusters, new_clusters, iteration)
     for m in range(0, len(centroids)):
