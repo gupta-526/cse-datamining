@@ -180,18 +180,22 @@ def main():
                 if new_clusters[j]==centroids[m]:
                     new_clusters[j]=m+1
         output_file(new_clusters,i)
-    data="wine_quality-red.csv"
+    name="wine_quality-red.csv"
     converges = False
-    data = input_file(data)
+    data = input_file(name)
     iteration = 0
     centroids = initialize_centroids(data, k)
-    old_clusters = two_dim_assign_cluster(data, centroids)
+    old_clusters = wine_assign_cluster(data, centroids)
     new_clusters = []
     while not converges:
         iteration += 1
-        centroids = wine_calculate_centroid(data,centroids,old_clusters)
+        centroids = wine_calculate_centroid(data, centroids, old_clusters)
         new_clusters = wine_assign_cluster(data, centroids)
-        converges = does_converge(old_clusters, new_clusters,iteration)
-    output_file(new_clusters, "wine_quality-red.csv")
+        converges = does_converge(old_clusters, new_clusters, iteration)
+    for m in range(0, len(centroids)):
+        for j in range(0, len(data)):
+            if new_clusters[j] == centroids[m]:
+                new_clusters[j] = m + 1
+    output_file(new_clusters, name)
 
 main()
