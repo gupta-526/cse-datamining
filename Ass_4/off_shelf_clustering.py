@@ -2,7 +2,7 @@ from sklearn.cluster import KMeans
 import pandas as pd
 
 def wine_cluster():
-    wine=pd.read_csv("Data/wine_quality-red.csv")
+    wine=pd.read_csv("Data/wine_quality-redk=2,run2.csv")
     cluster=KMeans(n_clusters=3,random_state=11).fit(wine)
     cluster.labels_
 

@@ -162,9 +162,12 @@ def get_user_input():
 #complete
 def main():
     #ask user for value of k
-    k=get_user_input()
+    #k=get_user_input()
+    ks=[get_user_input(),get_user_input(),get_user_input()]
+    x=0
     datas=["TwoDimEasy.csv","TwoDimHard.csv"]
     for i in datas:
+        k=ks[x]
         converges=False
         data=input_file(i)
         iteration = 0
@@ -182,7 +185,9 @@ def main():
                 if new_clusters[j]==centroids[m]:
                     new_clusters[j]=m+1
         output_file(new_clusters,i)
+        x+=1
     name="wine_quality-red.csv"
+    k=ks[-1]
     converges = False
     data = input_file(name)
     iteration = 0
