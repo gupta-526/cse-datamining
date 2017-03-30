@@ -163,11 +163,12 @@ def get_user_input():
 def main():
     #ask user for value of k
     #k=get_user_input()
-    ks=[get_user_input(),get_user_input(),get_user_input()]
+    k=get_user_input()
     x=0
     datas=["TwoDimEasy.csv","TwoDimHard.csv"]
     for i in datas:
-        k=ks[x]
+        # k=ks[x]
+        # if(int(k)<5):
         converges=False
         data=input_file(i)
         iteration = 0
@@ -184,10 +185,12 @@ def main():
             for j in range(0,len(data)):
                 if new_clusters[j]==centroids[m]:
                     new_clusters[j]=m+1
-        output_file(new_clusters,i)
-        x+=1
+        output_file(new_clusters, i)
+        # x+=1
+        
     name="wine_quality-red.csv"
-    k=ks[-1]
+    # k=ks[-1]
+    # if(int(k)<=4):
     converges = False
     data = input_file(name)
     iteration = 0
@@ -197,7 +200,7 @@ def main():
     while not converges:
         iteration += 1
         centroids = wine_calculate_centroid(data,centroids,old_clusters)
-        old_clusters=new_clusters.copy()
+        old_clusters=new_clusters
         new_clusters = wine_assign_cluster(data, centroids)
         converges = does_converge(old_clusters, new_clusters, iteration)
     for m in range(0, len(centroids)):
@@ -205,5 +208,6 @@ def main():
             if new_clusters[j] == centroids[m]:
                 new_clusters[j] = m + 1
     output_file(new_clusters, name)
+    # y+=1
 
 main()
