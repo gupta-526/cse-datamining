@@ -16,7 +16,7 @@ def initialize_centroids(data, k):
 
 #complete
 def two_dim_calculate_centroid(data,old_centroids,old_clusters):
-    new_centroids=old_centroids
+    new_centroids=old_centroids.copy()
     for j in range(0,len(old_centroids)):
         avg_one = 0
         avg_two = 0
@@ -41,7 +41,7 @@ def two_dim_calculate_centroid(data,old_centroids,old_clusters):
 
 #incomplete
 def wine_calculate_centroid(data,old_centroids,old_clusters):
-    new_centroids=old_centroids
+    new_centroids=old_centroids.copy()
     for j in range(0,len(old_centroids)):
         count = 1
         avg=[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
@@ -54,7 +54,7 @@ def wine_calculate_centroid(data,old_centroids,old_clusters):
                 avg[x]=avg[x]/count
         best_sim=1000
         for i in range(0,len(data)):
-            sim=sim=wine_similarity(data[i],avg)
+            sim=wine_similarity(data[i],avg)
             if sim<best_sim:
                 best_sim=sim
                 new_centroids[j]=i
@@ -187,12 +187,14 @@ def main():
     iteration = 0
     centroids = initialize_centroids(data, k)
     old_clusters = wine_assign_cluster(data, centroids)
-    new_clusters = old_clusters
+    new_clusters = old_clusters.copy()
     while not converges:
         iteration += 1
         centroids = wine_calculate_centroid(data,centroids,old_clusters)
-        old_clusters=new_clusters
+        old_clusters=new_clusters.copy()
         new_clusters = wine_assign_cluster(data, centroids)
+        print(old_clusters)
+        print(new_clusters)
         converges = does_converge(old_clusters, new_clusters, iteration)
     for m in range(0, len(centroids)):
         for j in range(0, len(data)):
