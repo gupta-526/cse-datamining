@@ -7,12 +7,10 @@ MAX_ITERATIONS=1000
 #complete
 def initialize_centroids(data, k):
     length = len(data)
-    # print(length)
     centroids=[]
     # test = random.choice(data)
     for i in range(0, int(k)):
         centroids.append(random.randint(1,length-1))
-    # print(test)
     return centroids
 
 
@@ -52,7 +50,7 @@ def wine_calculate_centroid(data,old_centroids,old_clusters):
                 count+=1
                 for m in range(1,len(data[i])-1):
                     avg[m]+=data[i][m]
-        for x in range(1,len(avg)):
+        for x in range(1,len(avg)-1):
                 avg[x]=avg[x]/count
         best_sim=1000
         for i in range(0,len(data)):
@@ -122,7 +120,7 @@ def does_converge(old,new,iteration):
         return old == new
 
 
-#incomplete
+#complete
 def output_file(clusters,name):
     out= open("Output/{0}".format(name),"w")
     wr=csv.writer(out,quoting=csv.QUOTE_ALL)
@@ -153,6 +151,7 @@ def input_file(name):
     infile.close()
     return data
 
+
 #complete
 def get_user_input():
     k_val = input("Please enter a value for k: ")
@@ -170,10 +169,11 @@ def main():
         iteration = 0
         centroids = initialize_centroids(data, k)
         old_clusters=two_dim_assign_cluster(data,centroids)
-        new_clusters=[]
+        new_clusters=old_clusters
         while not converges:
             iteration+=1
             centroids=two_dim_calculate_centroid(data,centroids,old_clusters)
+            old_clusters=new_clusters
             new_clusters=two_dim_assign_cluster(data,centroids)
             converges=does_converge(old_clusters,new_clusters,iteration)
         for m in range(0,len(centroids)):
@@ -187,10 +187,11 @@ def main():
     iteration = 0
     centroids = initialize_centroids(data, k)
     old_clusters = wine_assign_cluster(data, centroids)
-    new_clusters = []
+    new_clusters = old_clusters
     while not converges:
         iteration += 1
         centroids = wine_calculate_centroid(data,centroids,old_clusters)
+        old_clusters=new_clusters
         new_clusters = wine_assign_cluster(data, centroids)
         converges = does_converge(old_clusters, new_clusters, iteration)
     for m in range(0, len(centroids)):
