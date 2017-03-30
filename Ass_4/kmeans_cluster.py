@@ -37,6 +37,7 @@ def two_dim_calculate_centroid(data,old_centroids,old_clusters):
                 sim=two_dim_similarity(data[i],avg)
                 if sim<best_sim:
                     new_centroids[j] = i
+                    best_sim=sim
     return new_centroids
 
 
@@ -45,7 +46,7 @@ def wine_calculate_centroid(data,old_centroids,old_clusters):
     new_centroids=old_centroids
     for j in range(0,len(old_centroids)):
         count = 1
-        avg=[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
+        avg=[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
         for i in range(0, len(old_clusters)):
             if old_centroids[j] == old_clusters[i]:
                 count+=1
@@ -53,11 +54,11 @@ def wine_calculate_centroid(data,old_centroids,old_clusters):
                     avg[m]+=data[i][m]
         for x in range(1,len(avg)):
                 avg[x]=avg[x]/count
-        avg.append(-1)
         best_sim=1000
         for i in range(0,len(data)):
-            sim=wine_similarity(data[i],avg)
+            sim=sim=wine_similarity(data[i],avg)
             if sim<best_sim:
+                best_sim=sim
                 new_centroids[j]=i
     return new_centroids
 
