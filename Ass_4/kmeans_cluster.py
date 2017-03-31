@@ -139,7 +139,7 @@ def input_file(name):
     infile =open("Data/{0}".format(name))
     read=csv.reader(infile)
     next(read)
-    if name!="wine_quality-red.csv":
+    if name != "wine_quality-red.csv":
         for row in read:
             for n in range(0,len(row)):
                 row[n]=float(row[n])
