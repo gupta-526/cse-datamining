@@ -1,0 +1,23 @@
+Authors
+    Marielle Nwana(1) & Niharika Gupta(526)
+
+Language
+    Python
+
+Version 3.3x
+
+Input
+    Input data is contained in the "Data" folder. No manipulation is necessary.
+
+Output
+    Output from our program will be placed in the "Output" folder. There is a separate file for each input file.
+    The name is identical to that of the input.
+
+Running the Program
+    To run the program, simply click run for the "kmeans_cluster.py" file, located within Ass_4, in whichever environment is used.
+     This will automatically take the input from the data forlder and stores the output in the "Output" folder.
+      Use the following command to run the program in the terminal
+
+    	python kmeans_cluster.py
+    Once the program begins, it will prompt you with "Please enter a value for k: " three times. The value input for each
+    prompt will correspond to the k for "TwoDimEasy.csv", "TwoDimHard.csv", and "wine_quality-red.csv" respectively.
