@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63650ef1-d700-46d4-922e-2d69971f075c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_lastfm.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_soc.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/dataset/lastfm.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/dataset/soc-sign-epinions.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cse-datamining-master.iws" />
@@ -24,7 +24,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="naive_bayes_lastfm.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="naive_bayes_lastfm.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_lastfm.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -34,28 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lastfm.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/dataset/lastfm.json">
-          <provider selected="true" editor-type-id="LargeFileEditor">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="naive_bayes_soc.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="naive_bayes_soc.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_soc.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="soc-sign-epinions.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/dataset/soc-sign-epinions.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -169,6 +152,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cse-datamining" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cse-datamining" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="final-proj-gupta526-nwana1-ncasey" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dataset" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -181,6 +182,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/dataset" />
       <recent name="$PROJECT_DIR$/Ass_4" />
       <recent name="$PROJECT_DIR$/../../BDAA" />
       <recent name="$PROJECT_DIR$/ass2_gupta526_nwana1" />
@@ -636,7 +638,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490919006471</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="created files for my codes&#10;">
+      <created>1493159162038</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1493159162038</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TodoView">
@@ -706,7 +715,8 @@
     <MESSAGE value="it (probably) works. :~)" />
     <MESSAGE value="ran it multiple times to fulfill report requirements with different initialized centroids and various values for k" />
     <MESSAGE value="ugh.py is the file for off the shelf, but for some reason wasn't working when i tried to rename it..." />
-    <option name="LAST_COMMIT_MESSAGE" value="ugh.py is the file for off the shelf, but for some reason wasn't working when i tried to rename it..." />
+    <MESSAGE value="created files for my codes&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="created files for my codes&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -965,20 +975,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/dataset/soc-sign-epinions.txt">
+    <entry file="file://$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/knn_classification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/dataset/lastfm.json">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/knn_classification.py">
+    <entry file="file://$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_soc.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -994,12 +999,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_soc.py">
+    <entry file="file://$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/dataset/soc-sign-epinions.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="210">
+          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/dataset/lastfm.json">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state />
       </provider>
     </entry>
   </component>
