@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63650ef1-d700-46d4-922e-2d69971f075c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_glass.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_soc.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_lastfm.py" afterPath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_cancer.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_soc.py" afterPath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_mushroom.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_cancer.py" afterPath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_cancer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_glass.py" afterPath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_glass.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_mushroom.py" afterPath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_mushroom.py" />
     </list>
     <ignored path="cse-datamining-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,10 +28,10 @@
       <file leaf-file-name="naive_bayes_glass.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_glass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="30" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="30">
+              <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
               <folding>
-                <element signature="e#0#6#0" expanded="true" />
+                <element signature="e#0#42#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -42,8 +41,10 @@
         <entry file="file://$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_cancer.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -51,9 +52,11 @@
       <file leaf-file-name="naive_bayes_mushroom.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_mushroom.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="30">
+              <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,6 +106,8 @@
         <option value="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/naive_bayes_lastfm.py" />
         <option value="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/naive_bayes_soc.py" />
         <option value="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_lastfm.py" />
+        <option value="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_cancer.py" />
+        <option value="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_glass.py" />
         <option value="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_mushroom.py" />
       </list>
     </option>
@@ -628,7 +633,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493160852928</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="created files for my codes&#10;added new data, deleted others">
+      <created>1493161295746</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1493161295746</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TodoView">
@@ -642,15 +654,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27799842" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27799842" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.50277996" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32739726" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29452056" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2494043" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32739726" sideWeight="0.49722" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32739726" sideWeight="0.49722" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -979,29 +991,33 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_glass.py">
+    <entry file="file://$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_cancer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="30" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="24" />
           <folding>
-            <element signature="e#0#6#0" expanded="true" />
+            <element signature="e#0#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_cancer.py">
+    <entry file="file://$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_glass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="30">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_mushroom.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="30">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
