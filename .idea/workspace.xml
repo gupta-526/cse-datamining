@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="63650ef1-d700-46d4-922e-2d69971f075c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_cancer.py" afterPath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_cancer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_glass.py" afterPath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_glass.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_mushroom.py" afterPath="$PROJECT_DIR$/final-proj-gupta526-nwana1-ncasey/Marielle Files/naive_bayes_mushroom.py" />
     </list>
     <ignored path="cse-datamining-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -640,7 +637,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493161295746</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="created files for my codes&#10;added new data, deleted others">
+      <created>1493161912049</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1493161912049</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TodoView">
