@@ -6,20 +6,16 @@ import csv, pandas as pd, numpy as np
 def predict(name):
     data = pd.read_csv("Dataset/{0}.csv".format(name))
     train, test = train_test_split(data, test_size=0.3, random_state=42)
-    train, verification=train_test_split(train, test_size=0.3, random_state=42)
     gnb = GaussianNB()
     train_class = train['class']
     test_class = test['class']
-    verification_class = verification['class']
     del train['class']
-    print(gnb.fit(train,train_class))
-    print(gnb.predict(verification))
-    print(gnb.predict_proba(verification))
+    gnb.fit(train,train_class)
     pred=pd.DataFrame
-    pred['Predicted Class']=gnb.predict(verification)
-    pred['Actual Class']=verification_class
-    pred['Probability']=gnb.predict_proba(verification)
-    pred.to_csv("OffShelf/{0}".format(name))
+    pred['Predicted Class']=gnb.predict(test)
+    pred['Actual Class']=test_class
+    pred['Probability']=gnb.predict_proba(test)
+    pred.to_csv("Output/{0}".format(name))
 
 
 def main():
