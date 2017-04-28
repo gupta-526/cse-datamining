@@ -1,6 +1,6 @@
 from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import train_test_split
-import csv, pandas as pd, numpy as np
+import pandas as pd
 
 
 def predict(name):
@@ -19,7 +19,7 @@ def predict(name):
 
 
 def main():
-    files=["breast_cancer","mushrooms","glass"]
+    files=["breast_cancer_binary","mushrooms_binary","glass"]
     for i in files:
         predict(i)
 
