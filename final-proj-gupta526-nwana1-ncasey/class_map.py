@@ -18,7 +18,7 @@ def mushroom_transform():
     mush['veil-type']=mush['veil-type'].map({'p':0})
     mush['veil-color']=mush['veil-color'].map({'w':0,'n':1,'o':2,'y':3})
     mush['ring-number']=mush['ring-number'].map({'o':0,'t':1,'n':2})
-    mush['ring-type']=mush['ring-type'].map({'w':0,'g':1,'p':2,'n':3,'b':4,'e':5,'o':6,'c':7,'y':8})
+    mush['ring-type']=mush['ring-type'].map({'p':0,'e':1,'l':2,'f':3,'n':4})
     mush['spore-print-color']=mush['spore-print-color'].map({'k':0,'n':1,'u':2,'h':3,'w':4,'r':5,'o':6,'y':7,'b':8})
     mush['population']=mush['population'].map({'s':0,'n':1,'a':2,'v':3,'y':4,'c':5})
     mush['habitat']=mush['habitat'].map({'u':0,'g':1,'m':2,'d':3,'p':4,'w':5,'l':6})
