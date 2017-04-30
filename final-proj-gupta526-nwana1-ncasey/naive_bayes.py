@@ -8,15 +8,18 @@ def predict(name):
     train, test= train_test_split(data, test_size=0.3, random_state=0)
     gnb = GaussianNB()
     train_class = train['class']
-    test_class = test['class']
+    test_class = pd.DataFrame(test['class'])
+    test_class.columns=['Actual Class']
     del test['class']
     del train['class']
     gnb.fit(train,train_class)
-    pred=pd.DataFrame
-    pred['Predicted Class']=gnb.predict(test)
-    pred['Actual Class']=test_class
-    pred['Probability']=gnb.predict_proba(test)
-    pred.to_csv("Output/{0}".format(name))
+    test_df = pd.DataFrame()
+    test_df['ID']=test.index
+    test_df['Predicted Class']=gnb.predict(test)
+    out=pd.DataFrame(gnb.predict_proba(test))
+    test_df =pd.concat([test_df,test_class],axis=1)
+    out=pd.concat([test_df,out],axis=1)
+    out.to_csv("Output/{0}.csv".format(name),index=False)
 
 
 def main():
