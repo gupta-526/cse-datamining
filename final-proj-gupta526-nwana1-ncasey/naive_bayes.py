@@ -16,10 +16,11 @@ def predict(name):
     test_df = pd.DataFrame()
     test_df['ID']=test.index
     test_df['Predicted Class']=gnb.predict(test)
+    test_class['ID']=test.index
+    test_df=pd.merge(test_df,test_class,how='left',left_on=test_df['ID'],right_on=test_class['ID'],copy=False)
     out=pd.DataFrame(gnb.predict_proba(test))
-    test_df =pd.concat([test_df,test_class],axis=1)
     out=pd.concat([test_df,out],axis=1)
-    out.to_csv("Output/{0}.csv".format(name),index=False)
+    out.to_csv("Naive_Output/{0}.csv".format(name),index=False)
 
 
 def main():
