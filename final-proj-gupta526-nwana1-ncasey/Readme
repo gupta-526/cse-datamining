@@ -1,4 +1,28 @@
 Final Project
 Niharika Gupta(526), Marielle Nwana(1), Nicole Casey(318)
 Language: Python
-Language: Python 3.3
+
+Transform data for easier reading:
+
+$ python class_map.py
+
+For Naive Bayes:
+	$ naive_bayes.py
+ 	
+ 	Output: 
+For K-NN:
+	$ python knn_cancer.py
+	$ python knn_glass.py
+	$ python knn_mushroom.py
+
+	Output
+
+For Decision Trees:
+	$ python decision_trees.py
+
+	Output will appear on the console
+
+	To see visual representation of decision tree:
+
+	install graphviz
+	$ dot  tree.dot -Tpng -o tree.png
