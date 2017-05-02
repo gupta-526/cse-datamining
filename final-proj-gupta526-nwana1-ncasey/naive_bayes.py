@@ -5,7 +5,7 @@ import pandas as pd
 
 def predict(name):
     data = pd.read_csv("Dataset/{0}.csv".format(name))
-    train, test= train_test_split(data, test_size=0.3, random_state=0)
+    train, test= train_test_split(data, test_size=0.33, random_state=0)
     gnb = GaussianNB()
     train_class = train['class']
     test_class = pd.DataFrame(test['class'])
