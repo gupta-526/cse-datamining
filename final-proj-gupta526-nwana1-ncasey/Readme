@@ -14,8 +14,8 @@ For K-NN:
 	$ python knn_cancer.py
 	$ python knn_glass.py
 	$ python knn_mushroom.py
-
-	Output
+	
+	Each output dataset will exist as an object named 'output'.
 
 For Decision Trees:
 	$ python decision_trees.py
